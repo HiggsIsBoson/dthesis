@@ -10,7 +10,10 @@
 *.toc
 *.run.xml
 *.root
+*.root_hist
+*.cxx
 dthesis.log
+
 figures_all/
 figures_linked/
 reference/
