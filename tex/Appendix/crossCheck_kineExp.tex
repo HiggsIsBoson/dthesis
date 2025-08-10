@@ -1,84 +1,71 @@
-\clearpage
-\section{Cross-check of Background Estimation by fully using the Kinematical Extrapolation}  \label{sec::crossCheckBGestm}
-For cross-check of the background estimation, the SRs/VRs yields fully predicted by the kinamtical extrapolation method are presented.
-The same normalization factors are obtained in Sec. \ref{sec::BGestimation::kineExtp::result} are used. 
-The results are fairly consistent with that shown in the main sections derived by a combination of the kinamtical extrapolation and object replacement. \\
- 
+%\clearpage
+\subsection{Comparison between Kinematical Extrapolation and Object Replacement}  \label{sec::crossCheckBGestm}
+For the cross-check of ``di-leptonic'' backgorund estimation, 
+it is also estimated by the kinematical extrapolation method and compared with the nominal prediction  provided by the object replacement.
+Figure \ref{fig::crossCheck::pull_KineExtp_ObjRep} show the direct comparison in the predicted yields in SRs (VRs) between the two methods.
+Note that the same normalization factors are obtained in Sec. \ref{sec::BGestimation::kineExtp::result} are used in case of the kinematical extrapolation. 
+While they are found to be consistent in most of the regions, object replacement tends to predict a bit higher yields in high-$\mt$ regions where kinematical extrapolation is known to under-estimate due to the potential MC mis-modeling $\mt$ cut-off as mentioned in Sec. \ref{sec::BGestimation::unblindedVRs}. \\
 
-\subsection{Validation Regions}
+Figure \ref{fig::crossCheck::SRPulls} show the comparison of total background expectation and the pulls in VRs (SRs) between the two methods, where fairly consistent results are obtained.
+On the other hand, the source of uncertainty on the estimation is in contrast between the two estimation methods.
+Figure \ref{fig::crossCheck::systSummary} summarizes the total uncertainty and the breakdown for the two methods. 
+Though the total uncertainty is comparable with each other, the leading source is theory uncertainty for the kinemtical extrapolation while the CR statistics is the dominant source for the object replacement.
 
-% -------------- VRpulls
-\fig[170]{BGestimation/PullVRsSRs_kineExpOnly/histpull_VRs.pdf}
-{(Top) Observed data and the estimated yields in the nominal validation regions (VRa/VRb). 
-All backgrounds all estimated by the kinematical extrapolation method. The dashed band represents the combined statistical and systematic uncertainty on the total estimated backgrounds. (Bottom) Pull between the data and the estimation. Pulls in regions dominated by $\wjets$ and tops are painted by pink and blue respectively.}
-{fig::crossCheck::VRPulls}
-%-------------------------------                                                                     
 
 \clearpage
-\input{tex/BGestimation/tab_VRyields_kineExpOnly.tex}
+%%%%%%%%%%%%%%%%% KineExtp vs objRep pulls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+  \centering
+    \subfig{0.84}{figures/Result/comp_kine_objRep/objRep_VRs.pdf}{Comparison of predicted ``di-leptonic'' yields in \textbf{VRs} between the two methods.}
+    \subfig{0.84}{figures/Result/comp_kine_objRep/objRep_SRs.pdf}{Comparison of predicted ``di-leptonic'' yields in \textbf{SRs} between the two methods.}
+    \caption{ 
+    (Top pannels) Estimated yields of the di-leptonic components (``Mis-Reco'', ``Mis-ID'' and $``\ell\tau_h''$) in (a) VRs or in (b) SRs by the nominal method (pink) and the kinematical extrapolation method (blue). Error bars included both statistical and systematic uncertainty. 
+    (Bottom pannels) Pull between the two estimations.
+    }
+    \label{fig::crossCheck::pull_KineExtp_ObjRep}
+\end{figure}
+
+
 \clearpage
+%%%%%%% Pulls %%%%%%%%%%%%%%%%
+\begin{figure}[h]
+  \centering
+    \subfig{0.85}{figures/BGestimation/PullVRsSRs/histpull_VRs.pdf}{Estimated yields and pulls in \textbf{VRs} with the \textbf{nominal} estimation (same as Figure \ref{fig::BGestimation::VRPulls}).}
+    \hfill
+    \subfig{0.85}{figures/BGestimation/PullVRsSRs_kineExpOnly/histpull_VRs.pdf}{Estimated yields and pulls in \textbf{VRs} with the \textbf{alternative} estimation in which all the background are estimated by the kinematical extrapolation.}
+    \caption{ 
+      Total background expectationand the observed pulls in VRs. The dashed band represents uncertainty on the background estimation including both statistical and systematical uncertainty.
+    }
+    \label{fig::crossCheck::SRPulls}
+\end{figure}
 
-\subsection{Signal Regions}
-The unblinded yields of observed data together with the expected backgrounds in the signal regions are shown in Table \ref{tab::crossCheck::yieldsSRs_2J_6J} - \ref{tab::crossCheck::yieldsSRs_3B}. Observed data are found to be consistent in general, with no signal regions exhibiting the deviation more than 2$\sigma$.
-%A couple of minor excesses are found in some bins in the SR2JBV tower and SRHigh-xBT, however 
-The pulls between data and expectation is shown in Figurere \ref{fig::crossCheck::SRPulls}.
 
-%%%%%%%%%%%%%%% SR Yields %%%%%%%%%%%%%%%%%%%%
-\begin{table}[h]
-  \begin{center}
-    \caption{
-        Observed yields and backgrounds expection in the signal region bins in tower \textbf{2J} and \textbf{6J}.
-        Backgrounds are all estimated by the kinematical extrapolation. 
-    \label{tab::crossCheck::yieldsSRs_2J_6J}}
-    \input{tex/Result/yieldTables/yieldTable_2J_kineExpOnly.tex}
-    \input{tex/Result/yieldTables/yieldTable_6J_kineExpOnly.tex}
-  \end{center}
-\end{table}
+\clearpage
+%%%%%%% Pulls %%%%%%%%%%%%%%%%
+\begin{figure}[h]
+  \centering
+    \subfig{0.85}{figures/BGestimation/PullVRsSRs/histpull_SRs.pdf}{Estimated yields and pulls in \textbf{SRs} with the \textbf{nominal} estimation (same as Figure \ref{fig::Result::SRPulls}).}
+    \hfill
+    \subfig{0.85}{figures/BGestimation/PullVRsSRs_kineExpOnly/histpull_SRs.pdf}{Estimated yields and pulls in \textbf{SRs} with the \textbf{alternative} estimation in which all the background are estimated by the kinematical extrapolation.}
+    \caption{       
+      Total background expectationand the observed pulls in SRs. The dashed band represents uncertainty on the background estimation including both statistical and systematical uncertainty.
+    }
+    \label{fig::crossCheck::SRPulls}
+\end{figure}
 
-\begin{table}[h]
-  \begin{center}
-    \caption{
-        Observed yields and backgrounds expection in the signal region bins in tower \textbf{Low-x} and \textbf{High-x}.
-        Backgrounds are all estimated by the kinematical extrapolation. 
-    \label{tab::crossCheck::yieldsSRs_Lowx_Highx}}
-    \input{tex/Result/yieldTables/yieldTable_Lowx_kineExpOnly.tex}
-    \input{tex/Result/yieldTables/yieldTable_Highx_kineExpOnly.tex}
-  \end{center}
-\end{table}
 
-\begin{table}[h]
-  \begin{center}
-    \caption{
-        Observed yields and backgrounds expection in the signal region bins in tower \textbf{3B}.
-        Backgrounds are all estimated by the kinematical extrapolation. 
-    \label{tab::crossCheck::yieldsSRs_3B}}
-    \input{tex/Result/yieldTables/yieldTable_3B_kineExpOnly.tex}
-  \end{center}
-\end{table}
 
 \clearpage
 %%%%%%% Summary of post fit uncertainties %%%%%%%%%%%%%%%%
-\fig[170]{Result/systSummary_kineExpOnly/syst_summary_SRs.pdf}
-{
-    Post-fit systematic uncertainty with respective to the expected yield in the signal regions. 
-    Total systematics uncertainty is shown by the filled orange histogram, and the breakdowns are by dashed lines.
-    While the systematics in b-tagged bins are purely dominated by control region statistics, 
-    it is comparable to the other sources in the b-veto bins. The overall uncertainty ranges between $20\%\sim50\%$.
-}       
-{fig::crossCheck::systSummary}
-%-------------------------------                                                                                                                                                                                                                           
-    
-%%%%%%%%%%%%%%%%% SRpulls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\fig[170]{BGestimation/PullVRsSRs_kineExpOnly/histpull_SRs.pdf}
-{
-    (Top) Observed yields and the background expectation in signal regions. The white component is the backgounds estimated by the object replacement method, while the colored ones are by the kinamtical extrapolation method. The dashed band represents the combined statistical and systematic uncertainty on the total estimated backgrounds.
-    (Bottom) Pull between the observed data and the expectation. No significant deviation from expectation exceeding $2\sigma$.
-}
-{fig::crossCheck::SRPulls}
-%-------------------------------                                                                                                   
+\begin{figure}[h]
+  \centering
+    \subfig{0.84}{figures/Result/systSummary/syst_summary_SRs.pdf}{Uncertaintiy associated with the \textbf{nominal} estimation (same as Figure \ref{fig::Result::systSummary})}
+    \subfig{0.84}{figures/Result/systSummary_kineExpOnly/syst_summary_SRs.pdf}{Uncertainty associated with the \textbf{alternative} estimation in which all the backgroud is estimated by the kinematical extrapolation method.}
+    \caption{ 
+      Post-fit systematic uncertainty with respective to the expected yield in the signal regions. 
+      Total systematics uncertainty is shown by the filled orange histogram, and the breakdowns are by dashed lines.
+    }
+    \label{fig::crossCheck::systSummary}
+\end{figure}
 
 
-
-
-
-%\subsection{Discussion}

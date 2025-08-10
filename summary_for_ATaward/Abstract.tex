@@ -1,0 +1,100 @@
+\documentclass {article}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\oddsidemargin}{-0.3cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{23cm}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url, braket, setspace}
+\usepackage{amsmath,amsthm,amssymb,bm}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage[labelfont=bf]{caption}
+
+\input{alias.tex}
+
+%%%%%%%%%%%%
+
+\begin{document}
+
+%\section*{Abstract} 
+\begin{center}
+\large{\textbf{Search for Gluinos using Final States \\ with One Isolated Lepton in the LHC-ATLAS Experiment}}   \\ Shion Chen, University of Tokyo (Sep. 2017)
+\end{center}{
+%\begin{center}%
+%論文要旨
+%\end{center}
+
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=160mm]{figures/title.pdf}
+%\captionsetup{labelformat=empty}
+%\caption{}
+%\end{figure}
+
+Despite the enormous success of the Standard Model (SM) in particle physics, there are still a number of problems left to be solved such as the hierarchy problem in higgs mass and the unaccounted presence of dark matter.
+It is then strongly motivated to extend the Standard Model, and super-symmetry (SUSY) has been one of the most appealing framework for it.
+Gluino search is motivated as a powerful experimental probe to SUSY for its accessibility to uniquely high mass region, as well as for its compatibility either with theoretical and other constraints such as observed  matter relic and the mass of SM-like higgs.   \\
+
+This thesis presents the updated result of search for gluinos in proton-proton collisions at a center-of-mass energy of $\sqrt{s}=13\tev$ in the Large Hadron Collider (LHC), 
+by focusing on the final state with exactly one lepton. 
+%Minimal Supersymmetric Standard Model (MSSM)
+%\cite{fineTuning}
+With respect to the past searches, the sensitivity to heavier gluino is drastically gained using the improved analysis technique and updated data statistics (36.1 fb$^{-1}$ of integrated luminosity) collected in the ATLAS detector.  The main improvements in the analysis are two-fold: 
+
+\begin{itemize}
+\item Widening the scope of search in terms of variety of gluino decay chains and the scenario of SUSY mass spectra.
+A critical problem in past searches is that only a few typical gluino decays have been studied while a number of decays remain uncovered.
+In this analysis, a comprehensive converage over all the possible gluino decays are given, and in total 45 decay chains are targeted simultaneously.
+In addition, a particular focus is placed on a scenario motivated by observed dark matter relic density where the lightest two electroweak gauginos have the masses comppressed.
+%Signal regions are segmented with 18 different bins to address all the decay models, with special attention in cut optimization reconciling the inclusiveness and sensitivity. \\
+
+\item Introduction of a dedicated data-driven strategy in background estimation.
+One general characteristic of new physics search is that it has to focus on an extreme phase space that is often ill-modeled by MC simulation due to the sizable contribution from the higher-order terms in the perturbation series.
+In this analysis, a combination of 1) conventional semi-data driven method in which the MC prediction is corrected in a set of control regions, and 2) a newly introduced fully data-driven method (``object replacement method'') is implemented, enhancing the robustness of the background estimation. \\
+\end{itemize}
+
+
+\fig[130]{histpull_SRs.pdf}
+{Expected background level (colored stacks) and observed number of data events (black points) in the 18 signal region bins.}
+{SRpull}
+
+
+%%%%%%%%%%
+\begin{figure}[h]
+  \centering
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{figures/excl_GG_symQQC1_fixSigXSecNominal_x12.pdf}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{figures/excl_GG_symQQC1_fixSigXSecNominal_varx.pdf}}
+    \caption{ Obtained exclusion limit on a reference model ($pp \ra \tg\tg,  \tg \ra q\bar{q} \tchic$), displayed in the
+  (a) $m_{\tg}-m_{\tLSP}$ plane where the mass of the intermediate chargino is set to the midmost between gluino and the lightest neutralino, or either in the
+  (b) $m_{\tg}-x$ plane where $x:= (m_{\tchic}-m_{\tLSP})/(m_{\tg}-m_{\tLSP})$ and the lightest neutralino mass is set to $m_{\tLSP}=60\gev$. 
+  The limit set by previous search (ATLAS-CONF-2016-054) is indicated by the magenta shade.
+  \label{limit_symQQC1} }
+\end{figure}
+%%%%%%%%%%
+
+
+\fig[130]{3B_x12_obs.eps}
+{Observed exclusion limits on the gluino decay chains targeted by the 3 b-tagged signal regions. 
+Each line represents the limit placed on each decay chain of pair-produced gluinos. 45 decay chain models are considered in total, 30 of which are shown here. The rest of 15 models are targeted by the other signal regions.}
+{combLimit}
+
+No significant excess is found in the unblinded dataset as shown in Figure \ref{SRpull}, and exclusion limits are set on wide range of gluino decay scenarios. 
+The limit on process $pp \ra \tg\tg,  \tg \ra q\bar{q} \tchic$ is presented in Figure \ref{limit_symQQC1}, which has been commonly used as the benchmark in past analysis.
+The limit extends about $100-400\gev$ by the increased dataset together with improved analysis, hitting nearly $2\tev$ in gluino mass. 
+Various other cases are also examined (part of them are shown in Figure \ref{combLimit}).
+It is generally confirmed that up to $1.7\tev \sim 2.0 \tev$ in gluino mass and up to $\sim 1\tev$ in the lightest neutralino mass is excluded in case of typical mass spectra, 
+while the limit extends up to $1.5\tev \sim 1.9 \tev$ in gluino mass in case of compressed electroweak gaugino masses ($\Delta M = 20 \sim 30\gev$) that is motivated by dark matter relic observations.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{thebibliography}{99}
+%\bibitem {fineTuning}  L. J. Hall, D. Pinner, and J. T. Ruderman, ``A Natural SUSY Higgs Near 126 GeV'', JHEP 04 (2012) 131, arXiv:1112.2703 [hep-ph].
+%\bibitem {2016ICHEP} ATLAS Collaboration, ``Search for squarks and gluinos in events with an isolated lepton, jets and missing transverse momentum at √s = 13 TeV with the ATLAS detect'' ATLAS-CONF-2016-054 (2016).
+%\bibitem {DM} 
+%\end{thebibliography}
+
+\end{document}

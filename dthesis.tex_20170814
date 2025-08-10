@@ -1,0 +1,127 @@
+\documentclass{book}
+%\documentclass[10.5pt]{article}
+%\documentclass[11pt]{report}
+
+%\usepackage{ramsstyle}
+
+%\usepackage[dvips]{graphicx}
+%\usepackage[draft,dvipdfmx]{graphicx, xcolor}
+\usepackage{amsmath,amsthm,amssymb,bm}
+\usepackage{url, braket, setspace}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{slashed}
+\usepackage{hyperref}
+\usepackage{cite} 
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\usepackage{courier}
+\usepackage{therefore}
+
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{xspace}
+\usepackage{rotating}
+\usepackage{changepage}
+\usepackage{booktabs} % M.G.                                                                                                                                                                              
+\usepackage{verbatim}
+\usepackage{sverb}
+\usepackage{textcomp}
+\usepackage{capt-of}
+%
+\newcommand*{\ATLASLATEXPATH}{latex/}
+\usepackage{\ATLASLATEXPATH atlasphysics}
+
+
+%
+\setlength{\topmargin}{-1.5cm}
+\setlength{\oddsidemargin}{-0.3cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{23.7cm}
+\setlength{\abovedisplayskip}{4pt} % upper margin
+\setlength{\belowdisplayskip}{8pt}% lower margin
+%
+%aaa
+
+
+%
+\begin{document}
+\bibliographystyle{unsrt}
+
+\include{title}
+\pagenumbering{roman}
+\setlength{\baselineskip}{15pt}
+\tableofcontents
+%\newpage
+\pagenumbering{arabic}
+%
+%
+%
+\include{./tex/Abstract/Abstract}
+\include{./tex/Introduction/Introduction}
+%\include{./tex/Detector/Detector}
+%\include{./tex/ObjectDef/ObjectDef}
+%\include{./tex/Samples/Samples}
+%\include{./tex/SRdefinition/SRdefinition}
+%\include{./tex/BGestimation/BGestimation}
+%\include{./tex/Uncertainties/Uncertainties}
+%\include{./tex/Result/Result}
+%\include{./tex/Discussion/Discussion}
+%\include{./tex/Conclusion/Conclusion}
+
+
+\addcontentsline{toc}{part}{Acknowledgement}
+\include{./tex/Acknowledgement/Acknowledgement}
+
+
+%-------------------------------------------------------------------------------
+%\clearpage
+\appendix
+\def\thesection{\Alph{section}}
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
+%-------------------------------------------------------------------------------
+
+%\include{./tex/Appendix/kineMap}
+%\include{./tex/Appendix/VRQCD}
+%\include{./tex/Appendix/valid_extp_VR}
+%\include{./tex/Appendix/crossCheck_kineExp}
+%\include{./tex/Appendix/objRep_mcClosure}
+%\include{./tex/Appendix/xsecUL}
+%
+
+v%\include{./tex/Appendix/exclLimits}
+%\include{./tex/Appendix/fullListSyst}
+%
+%
+
+
+%-------------------------------------------------------------------------------
+% If you use biblatex and either biber or bibtex to process the bibliography
+% just say \printbibliography here
+%\printbibliography
+% If you want to use the traditional BibTeX you need to use the syntax below.
+%\bibliographystyle{bibtex/bst/atlasBibStyleWoTitle}
+
+\begingroup
+\let\itshape\upshape
+
+%\nocite{*}
+%\bibliography{/Users/cshionjp/Desktop/Lab/documentation/DoctoralThesis/dthesis}
+\bibliography{dthesis}
+%-------------------------------------------------------------------------------
+
+
+
+\end{document}

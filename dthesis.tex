@@ -1,20 +1,21 @@
-%\documentclass{book}
-\documentclass[10.5pt]{article}
-%\documentclass[11pt]{report}
+\documentclass[english,11pt]{book}
+%\documentclass[10.5pt]{article}
+
 %\usepackage{ramsstyle}
 
 %\usepackage[dvips]{graphicx}
 %\usepackage[draft,dvipdfmx]{graphicx, xcolor}
 \usepackage{amsmath,amsthm,amssymb,bm}
+\usepackage{threeparttable}
 \usepackage{url, braket, setspace}
 \usepackage{latexsym}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{float}
+\usepackage{midpage}
 \usepackage{listings}
 \usepackage{slashed}
 \usepackage{hyperref}
-\usepackage{cite} 
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -23,10 +24,16 @@
     urlcolor=blue
 }
 
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
 \usepackage{courier}
 \usepackage{therefore}
 
-\usepackage{subfigure}
+%\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{mwe}
 \usepackage{multirow}
 \usepackage{lscape}
 \usepackage{xspace}
@@ -37,10 +44,8 @@
 \usepackage{sverb}
 \usepackage{textcomp}
 \usepackage{capt-of}
+\usepackage[labelfont=bf]{caption}
 %
-\newcommand*{\ATLASLATEXPATH}{latex/}
-\usepackage{\ATLASLATEXPATH atlasphysics}
-
 
 %
 \setlength{\topmargin}{-1.5cm}
@@ -51,223 +56,76 @@
 \setlength{\abovedisplayskip}{4pt} % upper margin
 \setlength{\belowdisplayskip}{8pt}% lower margin
 %
-\newcommand{\nn}{\nonumber}
-\newcommand{\beq}{\begin{align}}
-\newcommand{\eeq}{\end{align}}
-\newcommand{\colv}[1]{\left( \begin{array}{c} #1 \end{array} \right)}
-\newcommand{\tab}[4]{\begin{table}[h] \begin{center} \caption{#3} \begin{tabular}{#1} #2 \end{tabular}  \label{#4} \end{center}   \end{table}}
-\newcommand{\tabsmall}[4]{\begin{table}[h] \begin{center} \small \caption{#3} \begin{tabular}{#1} #2 \end{tabular}  \label{#4} \end{center}   \end{table}}
-\newcommand{\tabtiny}[4]{\begin{table}[h] \begin{center} \tiny \caption{#3} \begin{tabular}{#1} #2 \end{tabular}  \label{#4} \end{center}   \end{table}}
-%
-\def \mm#1{\mathrm{#1}}
-% fig 
-\newcommand{\fig}[4][width=15cm]{
-	\begin{figure}[H]
-		 \centering
-			 \includegraphics[width=#1mm]{figures/#2}
-		 \caption{#3}
-		 \label{#4}
-	 \end{figure}} 
-% fig (not H)
-\newcommand{\figNoH}[4][width=15cm]{
-	\begin{figure}
-		 \centering
-			 \includegraphics[width=#1mm]{figures/#2}
-		 \caption{#3}
-		 \label{#4}
-	 \end{figure}} 
- % Math
- \newcommand{\MP}[1]{\mbox{\phantom{#1}}}
- \newcommand{\der}[1]{d #1}
- \newcommand{\mcal}{\mathcal{M}}
- \newcommand{\ddt}{\frac{\mathrm{d} }{\mathrm{d} t}}
- \newcommand{\pdt}{\frac{\partial }{\partial t}}
-%
- \newcommand{\intlumi}{36.1 $\mathrm{fb}^{-1}$}
-%
-%\newcommand{\tev}{\, \mathrm{TeV}}
-%\newcommand{\gev}{\, \mathrm{GeV}}
-%\newcommand{\mev}{\, \mathrm{MeV}}
-\newcommand{\um}{\, \mathrm{\mu m}}
-\newcommand{\us}{\, \mathrm{\mu s}}
-\newcommand{\cdeg}{\, {}^\circ\mathrm{C}}
-%
-%\newcommand{\ra}{\rightarrow}
-\newcommand{\ua}{\uparrow}
-\newcommand{\da}{\downarrow}
-\newcommand{\ol}{\overline}
-\newcommand{\dg}{\dagger}
-% 3-vectors
-\newcommand{\bp}{\bm{p}}
-\newcommand{\bn}{\bm{n}}
-\newcommand{\bnn}{\bm{n'}}
-\newcommand{\bmet}{\bm{\slashed{E}_{\mathrm{T}}}}
-\newcommand{\bpt}{\bm{p}_{\mathrm{T}}}
-% sin/cos
-\newcommand{\costh}{\cos{\theta}}
-\newcommand{\sinth}{\sin{\theta}}
-\newcommand{\costhh}{\cos{\frac{\theta}{2}}}
-\newcommand{\sinthh}{\sin{\frac{\theta}{2}}}
-\newcommand{\costthh}{\cos^2{\frac{\theta}{2}}}
-\newcommand{\sintthh}{\sin^2{\frac{\theta}{2}}}
-%
-\newcommand{\ltsim}{\protect\raisebox{-0.5ex}{$\:\stackrel{\textstyle <}{\sim}\:$}} % <~
-\newcommand{\gtsim}{\protect\raisebox{-0.5ex}{$\:\stackrel{\textstyle >}{\sim}\:$}} % >~
-\newcommand{\ltsimscript}{\protect\raisebox{-0.5ex}{$\stackrel{\scriptstyle <}{\sim}$}} % <~
-\newcommand{\gtsimscript}{\protect\raisebox{-0.5ex}{$\stackrel{\scriptstyle >}{\sim}$}} % >~
-
-%
-% SUSY aliases
-\newcommand{\mMSSM}{\mathrm{MSSM}}
-\newcommand{\mSM}{\mathrm{SM}}
-\newcommand{\mGUT}{\mathrm{GUT}}
-\newcommand{\mup}{\mathrm{u}}
-\newcommand{\mdn}{\mathrm{d}}
-\newcommand{\mL}{\mathrm{L}}
-\newcommand{\mR}{\mathrm{R}}
-\newcommand{\tQ}{\tilde{Q}}
-\newcommand{\tL}{\tilde{L}}
-%
-\newcommand{\te}{\tilde{e}}
-\newcommand{\ebar}{\bar{e}}
-\newcommand{\tebar}{\tilde{\bar{e}}}
-\newcommand{\tu}{\tilde{u}}
-%\newcommand{\ubar}{\bar{u}}
-\newcommand{\tubar}{\tilde{\bar{u}}}
-%\newcommand{\dbar}{\bar{d}}
-\newcommand{\td}{\tilde{d}}
-\newcommand{\tdbar}{\tilde{\bar{d}}}
-\newcommand{\ttop}{\tilde{t}}
-\newcommand{\tb}{\tilde{b}}
-\newcommand{\ttau}{\tilde{tau}}
-\newcommand{\tlep}{\tilde{\ell}}
-%
-\newcommand{\chaone}{\tilde{\chi}_{1}^{\pm}}
-\newcommand{\tchic}{\tilde{\chi}_{1}^{\pm}}
-\newcommand{\tchin}{\tilde{\chi}_{2}^{0}}
-\newcommand{\tLSP}{\tilde{\chi}_{1}^{0}}
-\newcommand{\neutwo}{\tilde{\chi}_{2}^{0}}
-%
-\newcommand{\tH}{\tilde{H}}
-\newcommand{\tW}{\tilde{W}}
-\newcommand{\tB}{\tilde{B}}
-\newcommand{\tg}{\tilde{g}}
-\newcommand{\mG}{m_{\tg}}
-%\newcommand{\mG}{m(\tilde{g})}
-\newcommand{\mC}{m_{\tchic}}
-\newcommand{\mN}{m_{\tchin}}
-\newcommand{\mCN}{m_{\tchic/\tchin}}
-\newcommand{\mLSP}{m_{\tLSP}}
-\newcommand{\dmg}{\Delta m(\tg, \, \tLSP)}
-\newcommand{\dmcn}{\Delta m(\tchic/\tchin, \, \tLSP)}
-\newcommand{\dmc}{\Delta m(\tchic, \, \tLSP)}
-\newcommand{\dmn}{\Delta m(\tchin, \, \tLSP)}
 
 
-%
-% Process names
-\newcommand{\wjets}{W+\mathrm{jets}}
-\newcommand{\zjets}{Z+\mathrm{jets}}
-\newcommand{\vjets}{V+\mathrm{jets}}
-\newcommand{\wzjets}{W/Z+\mathrm{jets}}
-%\newcommand{\ttbar}{t\bar{t}}
-\newcommand{\vvjets}{VV+\mathrm{jets}}
-%\newcommand{\mislep}{\slashed{\ell}}
-\newcommand{\mislep}{\ell_{\mathrm{mis.}}}
-\newcommand{\llmis}{\ell\mislep}
-\newcommand{\ltauh}{\ell\tau_h}
-\newcommand{\ttbarFakeB}{\ttbar+b_{\mathrm{fake}}}
+%%% Setup
 
-% stats
-\newcommand{\clsb}{\mathrm{CL}_{s+b}}
-\newcommand{\clb}{\mathrm{CL}_b}
-\newcommand{\cls}{\mathrm{CL}_s}
-\newcommand{\musig}{\mu_{\mathrm{sig.}}}
-\newcommand{\mutop}{\mu_{\mathrm{Top}}^i}
-\newcommand{\muw}{\mu_{\mathrm{W}}^i}
-\newcommand{\SR}{\mathrm{SR}}
-\newcommand{\TR}{\mathrm{TR}}
-\newcommand{\WR}{\mathrm{WR}}
-\newcommand{\CR}{\mathrm{CR}}
-\newcommand{\bmtheta}{\bm{\theta}}
+% header
+\usepackage{lettrine}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhf{} % clear all fields
+\fancyhead[RO,LE]{\thepage}
+%\fancyhead[LO]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\rightmark}
 
-% Generators
-\newcommand{\sherpa}{\SHERPA}
-\newcommand{\sherpatwo}{\SHERPA 2.2.1}
-\newcommand{\powheg}{\POWHEG}
-\newcommand{\powhegbox}{\POWHEG+Box}
-\newcommand{\mgmc}{MG5\_aMC@NLO}
-\newcommand{\pythia}{\PYTHIA}
-\newcommand{\pythiasix}{\PYTHIA 6.428}
-\newcommand{\pythiaeight}{\PYTHIA 8.186}
-\newcommand{\herwig}{\HERWIG}
+% shortcuts
+\include{alias}
+\newcommand*{\ATLASLATEXPATH}{latex/}
+\usepackage{\ATLASLATEXPATH atlaspackage}
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+\usepackage{\ATLASLATEXPATH atlasphysics}
 
-
-\newcommand{\antikt}{anti-$k_{\mathrm{T}}$}
-\newcommand{\Antikt}{Anti-$k_{\mathrm{T}}$}
-
-% gridname
-\newcommand{\dire}{\texttt{Direct} }
-\newcommand{\xhalf}{\texttt{x=1/2} }
-\newcommand{\varx}{\texttt{LSP60} }
-\newcommand{\DMtw}{\texttt{DM20} }
-\newcommand{\DMth}{\texttt{DM30} }
+% bib
+\addbibresource{dthesis.bib}
 
 
 
-
-% kinematical variables
-\newcommand{\DR}{\Delta R}
-\newcommand{\ppp}{p_{\mathrm{\perp}}}
-\newcommand{\ttPt}{\pt(\ttbar)}
-%\newcommand{\met}{E_{\mathrm{T}}^{\mathrm{miss}}}
-\newcommand{\meffInc}{m_{\mathrm{eff}}}
-\newcommand{\meffIncFirst}{m_{\mathrm{eff}}^{\mathrm{bin 1}}}
-\newcommand{\meffIncSecond}{m_{\mathrm{eff}}^{\mathrm{bin 2}}}
-\newcommand{\meffIncThird}{m_{\mathrm{eff}}^{\mathrm{bin 3}}}
-\newcommand{\nLepbase}{n_{\ell, \mathrm{base.}}}
-\newcommand{\nLepsignal}{n_{\ell, \mathrm{sig.}}}
-%\newcommand{\nJetNoGev}{n_{\mathrm{jet}}}
-%\newcommand{\nBJetNoGev}{n_{\mathrm{b-jet}}}
-\newcommand{\nJetNoGev}{n_{\mathrm{J}}}
-\newcommand{\nBJetNoGev}{n_{\mathrm{B}}}
-\newcommand{\nJet}{n_{\mathrm{J}} \,(p_{\mathrm{T}}>30\gev)}
-\newcommand{\fourthJetPt}{\pt(j_4)}
-\newcommand{\nBJet}{n_{\mathrm{B}} \, (p_{\mathrm{T}}>30\gev)}
-\newcommand{\lepOnePt}{p_{\mathrm{T}}(\ell_1)}
-\newcommand{\lepTwoPt}{p_{\mathrm{T}}(\ell_2)}
-\newcommand{\lepPt}{p_{\mathrm{T}}(\ell)}
-\newcommand{\wpt}{p_{\mathrm{T}}(W)}
-\newcommand{\mtFull}{m_{\mathrm{T}} (\lepPt, \met) }
-\newcommand{\mtRep}{\mt(\ell_{\mathrm{rep.}},\met) }
-\newcommand{\mt}{m_{\mathrm{T}} }
-\newcommand{\mindPhiFourJet}{\displaystyle \min_{i=1-4} \Delta \phi(j_i, \met)}
-\newcommand{\LepAplanarity}{\mathrm{Aplanarity}}
-\newcommand{\apl}{\mathrm{aplanarity}}
-\newcommand{\Apl}{\mathrm{Aplanarity}}
-\newcommand{\topNess}{\mathrm{Topness}}
-\newcommand{\metOverMeff}{\met/\meffInc}
-\newcommand{\nJetOverLepPt}{\nJetNoGev/\lepPt}
-
-\newcommand{\etcone}{\ET^{\mathrm{cone\,\,0.2}} }
-\newcommand{\ptcone}{\pt^{\mathrm{cone\,\,0.2}} }
-
-
-
-%
+%%%%%%%%%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\bibliographystyle{unsrt}
+%\bibliographystyle{unsrt}
 
+%%% Title (JPN)
+\thispagestyle{empty}
+\topmargin=10mm
+\begin{figure}[H]
+\centering
+\includegraphics[width=160mm]{assembly/title_jpn.pdf}
+\captionsetup{labelformat=empty}
+\caption{}
+\end{figure}
+
+\clearpage
+\thispagestyle{empty}
+
+%%% Title
 \include{title}
+
+\clearpage
+\thispagestyle{empty}
+
+
+%%% Abstract
+\include{./tex/Abstract/Abstract}
+
+%%% table of contents
 \pagenumbering{roman}
 \setlength{\baselineskip}{15pt}
 \tableofcontents
+
+\clearpage
+\thispagestyle{empty}
+
 %\newpage
 \pagenumbering{arabic}
 %
 %
-%
-\include{./tex/Abstract/Abstract}
+
+
+%%% Main body
+\include{./tex/Introduction/Preface}
 \include{./tex/Introduction/Introduction}
 \include{./tex/Detector/Detector}
 \include{./tex/ObjectDef/ObjectDef}
@@ -276,28 +134,37 @@
 \include{./tex/BGestimation/BGestimation}
 \include{./tex/Uncertainties/Uncertainties}
 \include{./tex/Result/Result}
+\include{./tex/Discussion/Discussion}
 \include{./tex/Conclusion/Conclusion}
 
 
+%%% Acknowledgement
 \addcontentsline{toc}{part}{Acknowledgement}
 \include{./tex/Acknowledgement/Acknowledgement}
 
 
 %-------------------------------------------------------------------------------
 %\clearpage
+%%%%%%%%%%% Appendix %%%%%%%%%%% 
 \appendix
+
+%%
 \def\thesection{\Alph{section}}
-\part*{Appendix}
-\addcontentsline{toc}{part}{Appendix}
-%-------------------------------------------------------------------------------
-\include{./tex/Appendix/kineMap}
-\include{./tex/Appendix/VRQCD}
-\include{./tex/Appendix/valid_extp_VR}
-\include{./tex/Appendix/crossCheck_kineExp}
-\include{./tex/Appendix/objRep_mcClosure}
-\include{./tex/Appendix/xsecUL}
-%
-\include{./tex/Appendix/exclLimits}
+%\part*{Appendix}
+%\addcontentsline{toc}{part}{Appendix}
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+
+%%
+\renewcommand\thefigure{\thesubsection.\arabic{figure}}    
+\renewcommand\thetable{\thesubsection.\arabic{table}}    
+\renewcommand\theequation{\thesubsection.\arabic{equation}}    
+
+%%%%%%%%%%% 
+\include{./tex/Appendix/Appendix}
+
+
+%\include{./tex/Appendix/exclLimits}
 %\include{./tex/Appendix/fullListSyst}
 %
 %
@@ -306,7 +173,7 @@
 %-------------------------------------------------------------------------------
 % If you use biblatex and either biber or bibtex to process the bibliography
 % just say \printbibliography here
-%\printbibliography
+\printbibliography
 % If you want to use the traditional BibTeX you need to use the syntax below.
 %\bibliographystyle{bibtex/bst/atlasBibStyleWoTitle}
 
@@ -315,9 +182,8 @@
 
 %\nocite{*}
 %\bibliography{/Users/cshionjp/Desktop/Lab/documentation/DoctoralThesis/dthesis}
-\bibliography{dthesis}
+%\bibliography{dthesis}
 %-------------------------------------------------------------------------------
-
 
 
 \end{document}

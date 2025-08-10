@@ -1,10 +1,17 @@
-\clearpage
+\chapter{Result}  \label{sec::Result}
+After fixing the background estimation algorithm, the data in the signal regions are unblinded.
+The yields are compared with either the background-only hypothesis or various signal hypothesis,
+testing the compatibility.
+The statistical result is finally interpretated into physics results, in a form of exclusion limit in terms of the SUSY masses either the cross-section upper limits. \\
 
-\section{Result}  \label{sec::Result}
+This chapter begins with describing the statistical procedure employed in deriving the background expectation (i.e. deciding the normalization factors in the kinematical extrapolation) and the hypothesis tests. Unblinded data in the signal regions are then shown, and the statistical result and the interpretation are discussed in the end of this chapter.
 
-\subsection{Statical Analysis and Hypothetical Test} \label{sec::Result::statistics}
-\paragraph{The Profle Likelihood and Treatment of Systematics}
-Statitical tests are performed to examine the consistency of observed data with respect to prediction of SM or that with specific signal being overlayed. This is implemented via a likelihood function based on the probability desnsity distribution (PDF) in terms of number of observed events in each signal region bin. The full representation of the likelihood is given by Eq. \ref{eq::Result::LH}:
+
+\section{Statistical Analysis and Hypothetical Test} \label{sec::Result::statistics}
+\paragraph{Profile likelihood and treatment of systematics} 
+Statistical tests are performed to examine the consistency of observed data with respect to the SM background expectation or that with specific signal being overlaid. 
+This is implemented via a likelihood function based on the probability density distribution (PDF) in terms of number of observed events in each signal region bin. 
+The full representation of the likelihood is given by Eq. (\ref{eq::Result::LH}):
 \begin{align}
  \mathcal{L} (\mu; \muw, \mutop, \bmtheta)  
  & =  \mathcal{L} ( \bm{n}^{\SR}, \bm{n}^{\WR}, \bm{n}^{\TR} | \mu, \muw, \mutop, \bmtheta) \nn \\
@@ -20,14 +27,13 @@ Statitical tests are performed to examine the consistency of observed data with 
   & \times \mathrm{Pois}\, (n^{\WR}_i | \mu s^{\TR}_i(\bmtheta) + \muw \,  w^{\TR}_i(\bmtheta) + \mutop \,  t^{\TR}_i(\bmtheta) + b^{\TR}_i(\bmtheta))   
 \label{eq::Result::LH}
 \end{align}
-where 
-$\bm{n}^{\SR}$, $\bm{n}^{\WR}$ and $\bm{n}^{\TR}$ are respectively the numbers of observed events in SRs, corresponding CRs such as WRs and TRs, with the vetor indices running over regions ;
+where $\bm{n}^{\SR}$, $\bm{n}^{\WR}$ and $\bm{n}^{\TR}$ are respectively the numbers of observed events in SRs, corresponding CRs such as WRs and TRs, with the vector indices running over regions ;
 $s_{r}$ is the expected signal yield in region $r$ in the signal model to be tested;
-$w_{r}$ and $t_{r}$ are respectively the expectated yields of $\wjets$ and $\ttbar$ in region $r$ before the normalization, with the components derived by the object replacement method being exluded;
-$b_{r}$ are the expectated yields of the other backgrounds in region $r$;
+$w_{r}$ and $t_{r}$ are respectively the expectedyields of $\wjets$ and the top backgroud in region $r$ before the normalization, with the components derived by the object replacement method being excluded;
+$b_{r}$ are the expectedyields of the other backgrounds in region $r$;
 $\bmtheta$ is the vector of nuisance parameters for each systematic uncertainty; 
-$\muw$ and $\mutop$ are the normalization factors for $\wjets$ and $\ttbar$ which are allowed to vary between $i$; 
-and $\mu$ is the signal strength, a parameter describing relative normalization with respect to the signal model to be tested i.e. $\mu=0$ corresponds to a background-only hypothesis and $\mu=1$ to a hypothesis with the nominal signal level expected by the signal model. Index $i$ runs along signal region bins joining the combined fit that are orothgonal to each other s.t. :
+$\muw$ and $\mutop$ are the normalization factors for $\wjets$ and the top backgroud which are allowed to vary between $i$; 
+and $\mu$ is the signal strength, a parameter describing the relative normalization with respect to the signal model to be tested i.e. $\mu=0$ corresponds to a background-only hypothesis and $\mu=1$ to a hypothesis with the nominal signal level expected by the signal model. Index $i$ runs along signal region bins joining the combination that are orthogonal to each other s.t. :
 %
 \begin{align}
 i \in \,\, \{ \,\,\, & \textbf{2J},\textbf{6J},\textbf{3B}  \,\,\, \}  \nn \\
@@ -44,28 +50,22 @@ where
 \textbf{3B} & = \,\, \{ \,\,\, \mbox{3B-$\meffIncFirst$, 3B-$\meffIncSecond$}  \,\,\, \}  \nn \\
 \end{align}
 
-The normalization factors for $\wjets$ and $\ttbar$ backgrounds are simultaneouly determined by the fit,
+The normalization factors for $\wjets$ and the top background backgrounds are simultaneously determined,
 in order to correlate the behavior of systematics.
 Therefore the CRs terms are also placed in the common likelihood with an identical representation as SRs. \\
 
-The statistical behavior of the PDF is fully characterized by a set of independent poisson PDF, namely:
+The statistical behavior of the PDFs is fully characterized by a product of Poisson distributions for each SR or CR:
 \begin{align}
 \mathrm{Pois}\,(n|\nu) & := \frac{\nu^n}{n!} e^{-\nu} \nn
 \end{align}
-with $\nu$ and $n$ being the expected yield and observed number repectively. \\
+where $\nu$ and $n$ are the expected yield and observed number respectively. \\
 
-The effect of a systematics (indexed by $k$) are then incorporated by shifting the poisson means $\nu$, via a corresponding nuisance parameter $\theta_k$ so as:
-\begin{align}
-        \nu(\theta_k) := f(\theta_k), 
-\end{align}
-with $f(\theta_k)$ being a continuous function satisfying:
-\begin{align}
-        f(\theta_k=0) & =  \nu(0)  \nn \\
-        f(\theta_k=\pm1) & =  \nu(\pm1\sigma).
-\end{align}
-$\nu(0)$ is the nominal expectation yields, while $\nu(\pm1\sigma)$ is given by that with the systematic variation applied by $\pm1\sigma$ which are evaluated beforehand. $f(\theta_k)$ in the other $\theta_k$ is then interporated or extrapolated using the three points by a polynomial or an exponential function, providing a continuous functional form of $\mathcal{L}$ in terms of $\bmtheta$.
+The effect of a systematics (indexed by $k$) are then incorporated by shifting the Poisson mean $\nu$, via a corresponding nuisance parameter $\theta_k$ so as:
+$\nu(0)$ corresponds to the nominal expectation and $\nu(\pm1)$ to that with $\pm 1\sigma$ variation due to the systematics. 
+While $\nu(0)$ and $\nu(\pm1)$ are calculated explicitly, the whole function $\nu(\theta_k)$ is obtained by interpolating or extrapolating the three points using a polynomial or an exponential function, providing a continuous functional form of $\mathcal{L}$ in terms of $\bmtheta$. \\
 
-What is here intend to do is to perform a global fit on data, simultaneously determining $\mu, \muw, \mutop$ and $\bmtheta$ by minimizing the likehood $\mathcal{L}$ (Eq. \ref{eq::Result::LH}). While the $\mu, \muw$ and $\mutop$ are allowed to flow based on our total ignorance, the shifts of the nuisance parameters $\bmtheta$ need to be restricted reflecting the level of our confidence. This is implemented by the last terms in the likelihood $\rho(\theta_k)$ known as the ``penalty terms'' serving as the prior constraints for the likehood. The form of the penalty terms depends on the statistical nature of each systematics:
+What is here intend to do is to perform a global fit on data, simultaneously determining $\mu, \muw, \mutop$ and $\bmtheta$ by minimizing the likelihood $\mathcal{L}$ (Eq. \ref{eq::Result::LH}). While $\mu, \muw$ and $\mutop$ are allowed to flow based on our total ignorance, the shifts of the nuisance parameters $\bmtheta$ need to be restricted reflecting the level of our confidence. This is implemented by the last terms in the likelihood $\prod_{k \in \mathrm{syst.}} \rho(\theta_k)$ known as the ``penalty terms'' serving as the prior constraints for the likelihood. 
+The form of the penalty terms depends on the statistical nature of each systematics:
 \begin{itemize}
 %jav. need to change
 \item A Gaussian PDF is commonly assumed for most systematic uncertainties:
@@ -84,35 +84,40 @@ What is here intend to do is to perform a global fit on data, simultaneously det
 \end{align}
 where $a$ is related with $\theta$ using the symmetrized uncertainty $\sigma$ by 
 \begin{align}
-& \theta = \frac{a-\nu}{\sigma} \nn \\
+& \theta = \frac{a-\nu}{\sigma} \nn 
 \end{align}
 \end{itemize}
 
 A multi-dimensional minimization over the parameter spaces of all the normalization factors, nuisance parameters and signal strength 
-\footnote{Remind that we have $8-16$ normalization factors and $\sim 150$ nuisance parameters in case of combined fit over all SR towers.}
-is performed by the Minuit2 algorithm \cite{minuit2} interfaced by a number wrapper packages; \texttt{HistFitter} \cite{HistFitter}, \texttt{HistFactory} \cite{HistFactory} and \texttt{RooFit} \cite{RooFit}.
-Signal strength and the background normalization factors are allowed to range $0\sim5$, while nuisance parameters are to moved by $-5\sigma \sim 5\sigma$ during the fit. Systematics found have tiny enough impact on the yields in the SRs/CRs region bins (evaluated by the Kolmogorov-Smirov test) are excluded from the fit so as to reduce the redundant dimensions of scan (``pruning''). \\
+\footnote{Remind that we have $8-16$ normalization factors and $\sim 150$ nuisance parameters in case of the combination over all SR towers.}
+is performed by the \textttb{Minuit2} algorithm \cite{minuit2}, 
+interfaced by a number wrapper packages; \textttb{HistFitter} \cite{HistFitter}, \textttb{HistFactory} \cite{HistFactory} and \textttb{RooFit} \cite{RooFit}.
+Signal strength and the background normalization factors are allowed to range $0\sim5$, while nuisance parameters are to moved by $-5\sigma \sim 5\sigma$ during the fit. 
+Systematics found to have tiny enough impact on the yields in the SR or CR bins (evaluated by the Kolmogorov-Smirov test) are excluded from the fit to reduce the redundant dimensions of the scan (``pruning''). \\
 
 
 %%%%%%%%%%%%%%%%%%%%
-\paragraph{Hypothetical Testing}
+\paragraph{Hypothetical testing}
 A hypothetical test against a hypothesis $H$ is done by examining the compatibility with observation, via p-value.
-P-value for testing hypothesis $H$ is commonly defined as the probability to find even rarer outcome than the observation under $H$. 
+The p-value for testing hypothesis $H$ is commonly defined as the probability to find even rarer outcome than the observation under $H$. 
 For the simplest one bin counting experiment where signal is manifested as an data excess, the p-value is then:
 \begin{align}
 p_\mu := \sum_{n=n_{\mathrm{obs}}}^{\infty} L(n|\mu)  \label{eq::poisson_pval}
 \end{align}
 using the number of observed events $n_{\mathrm{obs.}}$ as the test static.
-One would claim a discovery against the null hypothesis $H_0$ if the $p_0$ is significantly low that the observation can be hardly ascribed to statistical fluctuation out of $H_0$. In the filed of high energy physics experiment, this is usually set to one corresponding to $5\sigma$ gaussian standard deviation ($\sim 10^{-7}$). \\
+One would claim a discovery against the null hypothesis $H_0$ if the $p_0$ is significantly low that the observation can be hardly ascribed to statistical fluctuation of $H_0$. In the field of high energy physics experiment, this is usually set to one corresponding to $5\sigma$ gaussian standard deviation ($\sim 10^{-7}$ in p-value). \\
 
-On the other hand, one can claim the exclusion of a signal hypothesis $H_1$ when $p_1$ is reasonably low. $p_1<0.05$ is conventionally used as the threshold, equivalent to an exclusion with $95\%$ confidence level. There are circumstates where observation does not agree with either $H_0$ and $H_1$ due to statistical fluctuation or more seriously poor understanding to backgrounds, and result in strong exclusion power typically when data undershoots the expectation. In LHC, in order to prevent such potentially unreasonably strong exclusion, a modified measure $\cls$ is used:
+On the other hand, one can claim the exclusion of a signal hypothesis $H_1$ when $p_1$ is reasonably low. $p_1<0.05$ is conventionally used as the threshold, equivalent to an exclusion at $95\%$ confidence level. There are circumstances where observation does not agree with either $H_0$ and $H_1$ due to statistical fluctuation or more seriously poor understanding to the backgrounds, and result in strong exclusion power typically when data undershoots the expectation. In LHC, in order to prevent such potentially unreasonably strong exclusion, a modified measure $\cls$ is used:
 \begin{align}
 %\cls := \frac{p_1}{1-p_0},
 \cls := \frac{p_1}{p_0},
 \end{align}
 and $\cls<0.05$ is accepted as the equivalence of an exclusion at $95\%$ confidence level. \\
 
-In presence of multiple test statics ($\bm{n}^{\SR}$) together with bunches of nuisance parameters, it is not obvious how to define the ``rareness'' on the muti-dimension of space. In such cases, likelihood is often chosen as the test static projecting n-dimension observables into 1 dimension, as well as providing a well-defined meausre of ``reareness'' by definition. In LHC analysis, a normalized likelihood test static $\lambda_\mu$ is widely used:
+In presence of multiple test statics ($\bm{n}^{\SR}$) together with bunches of nuisance parameters, it is not trivial how to define the ``rareness'' on the multi-dimension of space. 
+In such cases, the likelihood itself is often chosen as the test static projecting from $n$-dimension into 1-dimension, 
+providing a well-defined measure of ``rareness'' by definition. 
+In LHC analyses, a normalized likelihood test static $\lambda_\mu$ is commonly used:
 \begin{align}
 \lambda_\mu = 
         \begin{cases}
@@ -120,29 +125,31 @@ In presence of multiple test statics ($\bm{n}^{\SR}$) together with bunches of n
         \dfrac{ \mathcal{L} (\mu, \hat{\hat{\bmtheta}}(\mu)) }{ \mathcal{L} (0, \hat{\hat{\bmtheta}}(0))  }  \mbox{\phantom{MMMMMMMMMM}} (\hat{\mu}<0)
         \end{cases}
 \end{align}
-where $\hat{\hat{\theta}}(\mu)$ denotes the best-fit nuisance parameters with fixed $\mu$,
-while $\hat{\mu}$ and $\hat{\theta}$ the best-fit parameters with $\mu$ is allowed to float. 
-$\mathcal{L} (\mu, \hat{\hat{\theta}}(\mu))$ presents the conditional likelihood normalized by the $\mu$-agonistic denominator $\mathcal{L} (\hat{\mu}, \hat{\theta})$, forcing the range of $\lambda_\mu$ to $0<\lambda_\mu<1$. \\
+where $\bm{\hat{\hat{\theta}}(\mu)}$ denotes the best-fit nuisance parameters with fixed $\mu$,
+while $\hat{\mu}$ and $\bm{\hat{\theta}}$ the best-fit parameters with $\mu$ is allowed to float. 
+$\mathcal{L} (\mu, \bm{\hat{\hat{\theta}}(\mu)})$ presents the conditional likelihood normalized by the $\mu$-agonistic denominator $\mathcal{L} (\hat{\mu}, \bm{\hat{\theta}})$, 
+forcing the range of $\lambda_\mu$ to $0<\lambda_\mu<1$. \\
 %(Eq. \ref{sec::Result::LH})
 
 The p-value is finally defined as:
 \begin{align}
 p_\mu := \int_{q_{\mu,\mathrm{obs.}}}^{\infty}  f(q^{\mu}|\mu) dq_\mu
 \end{align}
-where $q_{\mu}$ is:
+where $q_{\mu}$ is defined by:
 \begin{align}
 q_{\mu} = 
         \begin{cases}
         -2 \log\lambda(\mu)     \,\,\,\,  (\hat{\mu} < \mu) \\
         \mbox{\phantom{k}} 0     \mbox{\phantom{MMMMM}} (\hat{\mu} > \mu)
         \end{cases}
-.
 \end{align}
-$f(q_\mu)$ is the PDF that $q_\mu$ obeys, defined by the vaiation of $q_\mu$ when suffering from both the statistical fluctuation as well as systematics.
-Unlike the PDF in the simplest counting experiment Eq. \ref{eq::poisson_pval}, $f(q_\mu)$ is in generally unknown neighther modeled analytically thus needs a bunch of toy experiments to determine; scanning from $\mu=0$ upto $\mu=5\sim 10$ with a finite step, on each of which a number of the likelihood fits are performed with different fluctuating data statistics and systematic variation applied. This is an incredibly crazy course of computation, and we have to go relying on some analytical approximation after all.  \\
-\footnote{Each likehood fit takes approximately 8-15 minutes. }
+conserving a 1-to-1 correspondence with $\lambda_\mu$.
+$f(q_\mu)$ is the PDF that $q_\mu$ obeys, describing the fluctuation of $q_\mu$ against the statistical fluctuation of $\bm{n}^{\SR}$ as well as the variation due to the systematics.
+Unlike the PDF in the simplest counting experiment Eq. (\ref{eq::poisson_pval}), $f(q_\mu)$ is in generally not known neither modeled analytically thus needs a bunch of toy experiments to determine; 
+scanning from $\mu=0$ upto $\mu=5$ with a finite step, on each of which a number of the likelihood fits are performed with different fluctuating data statistics and systematic variation applied. 
+This is an incredibly crazy course of computation, and we have to go relying on some analytical approximation after all \footnote{Each likelihood fit takes approximately 8-15 minutes. }. \\
 
-Fortunately, there are a couple of powerful approximation formula known as Wald's approximation \cite{WaldTheorem}:
+Fortunately, there are a couple of powerful approximation formula such as Wald's approximation \cite{WaldTheorem}:
 \begin{align}
 q_\mu = -2 \log\lambda(\mu) = \frac{\mu-\hat{\mu}}{\sigma^2} + O(1/\sqrt{N}) \label{eq::WaldTheorem}
 \end{align}
@@ -152,39 +159,38 @@ f(q_\mu,\mu) & = \frac{1}{\sqrt{q_\mu}} \frac{1}{\sqrt{2\pi}} \left[ \exp \left(
 R & := \frac{(\mu-\hat{\mu})^2}{\sigma^2},
 \label{eq::asimov}
 \end{align}
-with Wald's approximation \ref{eq::WaldTheorem} being applied.  $\sigma$ is the fitting error on $\hat{\mu}$ and $N$ symbolizes the magnitude of number of events in signal regions, with which the PDF $f(q_\mu)$ can be determined by only one fit.
+with Wald's approximation (Eq. (\ref{eq::WaldTheorem})) being applied.  $\sigma$ is the fitting error on $\hat{\mu}$ and $N$ symbolizes the magnitude of number of events in signal regions, with which the PDF $f(q_\mu)$ can be determined by only one fit. \\
 
-One disclaimer is however about the validity of the approximation where $O(1/\sqrt{N})$ terms are ignored.
-This may not be the case given that the signal regions typically contains events less than 5.
-In the thesis, the result for background-only hypothesis (shown in Sec. \ref{sed::Result::bgOnly}) is derived using the rigid toy experiments, however the Asimov's formula (Eq.\ref{eq::asimov}) is nevertheless used for limit setting due to the unrealistic computing time required for the toy experiments. 
+Note that the approximation is essentially ignoring the $O(1/\sqrt{N})$ terms,
+which may not be fully justified given that the signal regions typically contain number of events less than 5.
+In the thesis, the result for background-only hypothesis (Sec. \ref{sed::Result::bgOnly}) is derived using the rigid toy experiments, 
+however the Asimov's formula (Eq. \ref{eq::asimov}) is used for limit setting avoiding the unrealistic computing time required for the toy experiments. 
 %Though it is generally claimed that the p-value could change, this would not change the grand picture of the resultant limits, given that rapid decrease of cross-section .
-\footnote{This is in fact how ATLAS/CMS provides the result. We have to admit the imperfection but this is the best thing we could afford to do.}
+\footnote{This is in fact how ATLAS and CMS provide the result, based on the notion that this is the best thing one could afford to do.}
 
 
-\clearpage
-\subsection{Unblinded Signal Regions with Background-only Hypothesis} \label{sed::Result::bgOnly}
-The background expectation in signal regions for null singal hypothesis are determined tower-by-tower, 
-by performing a simoultaneous fit on the normalization factors ($\mu_W$, $\mu_{\mathrm{Top}}$) as well as the nuisance parameters associated to systematics uncertainties, 
-using all the relevent bins of control regions and signal regions.
-The post-fit uncertainties are summarized in Figurere \ref{fig::Result::systSummary}.  \\
+%\clearpage
+\section{Unblinded Signal Regions with Background-only Hypothesis} \label{sed::Result::bgOnly}
+The background expectation in signal regions for null signal hypothesis are determined tower-by-tower, 
+by performing a simultaneous fit on the normalization factors ($\mu_W$, $\mu_{\mathrm{Top}}$) as well as all the nuisance parameters associated to systematics uncertainties, 
+onto the data in all the relevant bins of control regions and signal regions.
+The post-fit uncertainties are summarized in Figure \ref{fig::Result::systSummary}, determined by the range of nuisance parameters giving $\mathcal{L}<\mathcal{L}_{\mathrm{min}}+1/2$.
+For the low $\meffInc$-bins, typically the estimation precision is at $20\%$ level where theory systematics is the main source.
+The signal region bins with the tightest $\meffInc$ selection end up in $40\% \sim 60\%$ of total uncertainty, dominated by the control region statistics. \\
 
-For the low $\meffInc$-bins, typically the estimation precision is at $20\%$ level where theory systematics is the main souce.
-The signal region bins with tightest selection end up in $40\% \sim 60\%$ of total uncertainty, dominated by the control region statistics in the object replacement method. \\
+The unblinded yields of observed data together with the expected backgrounds in the signal regions are shown in Table \ref{tab::Result::yieldsSRs_2J_6J} - \ref{tab::Result::yieldsSRs_3B}. 
+Observed data are found to be consistent in general, with no signal regions exhibiting deviation more than 3$\sigma$.
+The pulls between data and expectation is shown in Figure \ref{fig::Result::SRPulls}. \\
 
-The unblinded yields of observed data together with the expected backgrounds in the signal regions are shown in Table \ref{tab::Result::yieldsSRs_2J_6J} - \ref{tab::Result::yieldsSRs_3B}. Observed data are found to be consistent in general, with no signal regions exhibiting the deviation more than 2$\sigma$.
-%A couple of minor excesses are found in some bins in the SR2JBV tower and SRHigh-xBT, however 
-The pulls between data and expectation is shown in Figurere \ref{fig::Result::SRPulls}. \\
-
-Figurere \ref{fig::BGestimation::VRpostFit::SR2JBT}-\ref{fig::BGestimation::VRpostFit::SR3B} show the kinematical distributions of either data and prediction in unblinded signal regions.  \\
-
+Figure \ref{fig::BGestimation::SRVRpostFit::SR2JBT}-\ref{fig::BGestimation::SRVRpostFit::SR3B} show the kinematical distributions of either data and prediction in unblinded signal regions. The slight data excess found (in SR 2J-$\meffIncFirst$ BV, SR 2J-$\meffIncThird$ BV and SR High-x BT) turns to be not very much favored by the targeted models in the signal regions bins, though the data statistics is too low too conclude. \\
 
 %%%%%%%%%%%%%%% SR Yields %%%%%%%%%%%%%%%%%%%%
 \begin{table}
   \begin{center}
     \caption{
-        Observed yields and backgrounds expection in the signal region bins in tower \textbf{2J} and \textbf{6J}.
+        Observed yields and backgrounds expectation in the signal region bins in tower \textbf{2J} and \textbf{6J}.
         Background component estimated by the object replacement are denoted as ``Di-leptonic'', 
-        while the others are derived from the kinematical extrapolation method. Displayed errors are only systematics uncertainty.
+        while the others are derived from the kinematical extrapolation method. 
     \label{tab::Result::yieldsSRs_2J_6J}}
     \input{tex/Result/yieldTables/yieldTable_2J.tex}
     \input{tex/Result/yieldTables/yieldTable_6J.tex}
@@ -194,9 +200,9 @@ Figurere \ref{fig::BGestimation::VRpostFit::SR2JBT}-\ref{fig::BGestimation::VRpo
 \begin{table}
   \begin{center}
     \caption{
-        Observed yields and backgrounds expection in the signal region bins in tower \textbf{Low-x} and \textbf{High-x}.
+        Observed yields and backgrounds expectation in the signal region bins in tower \textbf{Low-x} and \textbf{High-x}.
         Background component estimated by the object replacement are denoted as ``Di-leptonic'', 
-        while the others are derived from the kinematical extrapolation method. Displayed errors are only systematics uncertainty.
+        while the others are derived from the kinematical extrapolation method. 
     \label{tab::Result::yieldsSRs_Lowx_Highx}}
     \input{tex/Result/yieldTables/yieldTable_Lowx.tex}
     \input{tex/Result/yieldTables/yieldTable_Highx.tex}
@@ -206,70 +212,144 @@ Figurere \ref{fig::BGestimation::VRpostFit::SR2JBT}-\ref{fig::BGestimation::VRpo
 \begin{table}
   \begin{center}
     \caption{
-        Observed yields and backgrounds expection in the signal region bins in tower \textbf{3B}.
+        Observed yields and backgrounds expectation in the signal region bins in tower \textbf{3B}.
         Background component estimated by the object replacement are denoted as ``Di-leptonic'', 
-        while the others are derived from the kinematical extrapolation method. Displayed errors are only systematics uncertainty.
+        while the others are derived from the kinematical extrapolation method. 
     \label{tab::Result::yieldsSRs_3B}}
     \input{tex/Result/yieldTables/yieldTable_3B.tex}
   \end{center}
 \end{table}
 
-
+\clearpage
 %%%%%%% Summary of post fit uncertainties %%%%%%%%%%%%%%%%
-\fig[170]{Result/systSummary/syst_summary_SRs.pdf}
+\figMid[170]{Result/systSummary/syst_summary_SRs.pdf}
 {
-    Post-fit systematic uncertainty with respective to the expected yield in the signal regions. 
-    Total systematics uncertainty is shown by the filled orange histogram, and the breakdowns are by dashed lines.
-    While the systematics in b-tagged bins are purely dominated by control region statistics, 
-    it is comparable to the other sources in the b-veto bins. The overall uncertainty ranges between $20\%\sim50\%$.
+    Systematic uncertainty in the signal regions with respective to the expected yields. 
+    The total systematics uncertainty is shown by the filled orange histogram, 
+    and the breakdowns are by the dashed lines.
+    While the systematics in BT/3B bins are purely dominated by control region statistics, 
+    it is comparable to the other sources in the BV bins. 
+    The overall uncertainty ranges between $20\%\sim50\%$.
 }       
 {fig::Result::systSummary}
 %-------------------------------                                                                
 
-
-%%%%%%%%%%%%%%%%% SR post fit N-1 plots %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\input{tex/Result/SRpostFit}
-
-    
 %%%%%%%%%%%%%%%%% SRpulls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\fig[170]{BGestimation/PullVRsSRs/histpull_SRs.pdf}
+\figMid[170]{BGestimation/PullVRsSRs/histpull_SRs.pdf}
 {
-    (Top) Observed yields and the background expectation in signal regions. The white component is the backgounds estimated by the object replacement method, while the colored ones are by the kinamtical extrapolation method. The dashed band represents the combined statistical and systematic uncertainty on the total estimated backgrounds.
-    (Bottom) Pull between the observed data and the expectation. No significant deviation from expectation exceeding $2\sigma$.
+    (Top) Observed data yields (black dots) and the background expectation (histogram) in the signal regions. The white component is the backgrounds estimated by the object replacement method, while the colored ones are by the kinematical extrapolation method. The dashed band represents the combined statistical and systematic uncertainty on the total estimated backgrounds.
+    (Bottom) Pull between the observed data and the expectation. No significant deviation from expectation exceeding $3\sigma$.
 }
 {fig::Result::SRPulls}
 %-------------------------------                                                                                                   
 
+%%%%%%%%%%%%%%%%% SR post fit N-1 plots %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\input{tex/Result/fig_SRpostFit}
+
                                                                                                                          
 \clearpage
-\subsection{Constraints on the Benchmark Models}
-The observed results are then interpretated into constraints on the benchamark models listed in Table \ref{tab::Introduction::modelsBV} - \ref{tab::Introduction::models3B}.  \\
+\section{Constraints on the Benchmark Models}
+The observed results are then interpreted into the constraints on the benchmark models listed in Table \ref{tab::Introduction::modelsBV} - \ref{tab::Introduction::models3B}. The obtained limits are also compared with the previous ATLAS results with integrated luminosity of 14.8 $\ifb$ or 36.1 $\ifb$.
 %The limits on the reference models (colored in Table \ref{tab::Introduction::modelsBV} - \ref{tab::Introduction::models3B}) are mainly presented in this section.
 %while the full numerical results on the others models are shown in the Appendix. \\
 
-%\subsubsection{Exclusion Limits}
-Figurere \ref{fig::Result::exclLimit::GG_onestepCC} presents the exclusion limit on QQC1QQC1, the reference model for BV benchmarks (Table \ref{tab::Introduction::modelsBV}). Hypothetical tests are done with each signal point using the combination of signal regions that gives the best expected sensitivity. The excluded region is defined by areas with $CL_s<0.05$, corresponding to $95\%$ confidence level. The associated expected limit is represented by a yellow band, showing the range of obtained limit if observed data is consistent to the expectation within $\pm1\sigma$. Observed limits are typically worse than the expected ones in the mass region where sensitivity is primarily driven by SR \textbf{2J} and SR \textbf{High-x}, namely the diagonal region in the \xhalf grid, and the high-$x$ region in the \varx grid respectively, reflecting the observed excess there which weakens the exclusion power. For the \xhalf and the \varx grid, limits are compared with the up-to-date published result provided by ATLAS \cite{strong1L_ICHEP2016_CONF}, shown as grey shades. The exclusion limits are pushed forward by about $200\gev\sim300\gev$ in gluino mass. Obviously, this owes a lot to the increased data statistics by factor of 2.5 though, the benefit by the improved analysis can also be acknowledged, given that the cross-section of gluino pair production falls more rapidly with respect the gluino mass increase, which is roughly $1/3$ by every $200\gev$. Upto $2\tev$ of gluino mass is excluted at the most optimistic massless LSP scenario, while it also reaches about $1.9\tev$ of gluino mass for the more realistic case with $0<\mLSP<1\tev$. 
-% 
-The constraints on the scenario where EW-gauginos are compressed, 
-represented by the \DMth, \DMtw grids,
-are explicitly investigated for the first time, which will provide useful input for a number of dark matter oriented SUSY phenomelogical models, such as the well-tempered neutrino scenario.
-Though the limit is weaker than the typical signatures in \xhalf and \varx, sensitivity is addressed without loopholes. \\
+%\section{Exclusion Limits}
+\paragraph{\underline{\textbf{QQC1QQC1}}} \mbox{} \\
+Figure \ref{fig::Result::exclLimit::GG_onestepCC} presents the exclusion limit on \textbf{QQC1QQC1}, the reference model for BV benchmarks (Table \ref{tab::Introduction::modelsBV}). Hypothetical tests are done with each signal point using the combination of signal regions that gives the best expected sensitivity. The excluded region is defined by areas with $\mathrm{CL_s}<0.05$, corresponding to $95\%$ confidence level. The associated expected limit is represented by a blue line with a yellow $1\sigma$ band defined by the range of observed limit if observation is consistent with expectation within $\pm1\sigma$. Observed limits are typically worse than the expected ones in the mass region where sensitivity is primarily driven by SR \textbf{2J} and SR \textbf{High-x}, namely the diagonal region in the $\xhalf$ grid, and the high-$x$ region in the $\varx$ grid respectively, reflecting the observed excess there which weakens the exclusion power.  \\
 
-Likewise, Figurere \ref{fig::Result::exclLimit::GG_QQC1BTC1} exhibits the limits for model QQC1BTC1, the reference model for BT benchmarks (Table \ref{tab::Introduction::modelsBV}). As the sensitivity is mainly driven by the b-tagged bins for this model, it is relatively more affected by the $\sim 1.9\sigma$ excess observed in the SR High-x BT, which drastically weakens the limit in the \varx grid. Nevertheless, the overall exclusion reach is comparable to QQC1QQC1, amounting to $1.9\sim2\tev$ in gluino mass for $\mLSP <1\tev$. As the the asymmetric decays of gluino have never been interpretated before, this is the first explicit constrains on such class of models. \\
+Exclusion limits driven by the previous 1-lepton search in ATLAS with 14.8 $\ifb$ \cite{strong1L_ICHEP2016_CONF} are shown by the shaded areas. While the magenta areas are the exclusion limit directly quoted from the reference \cite{strong1L_ICHEP2016_CONF}, the cyan ones indicate the potential exclusion that could have achieved by the SRs in the previous search, calculated based on the observed yields in the signal regions, since no interpretation has been made with the grids.  \\
 
-The exclusion limit for the model TTN1TTN1, the reference model for the 3B benchmarks (Table \ref{tab::Introduction::modelsBV}) is shown in Figurere \ref{fig::Result::exclLimit::GG_ttn1}. The observed and expected limits agree as the global feature. The most prominent update from the past result \cite{strong3B_ICHEP2016_CONF} by ATLAS (shaded area in the plot) is around the diagonal region with the mass spliting $\dmg$ below $400\gev$, where the explicit limit is set for the first time by the exploring the $\geq 3$ b-tagged jets signature. On the other hand, there is seemingly no improvedment in the direction toward high gluino mass despite the increased data, which is because the compared limit is provided by the combination of both 0-lepton and 1-lepton channel in the analysis. The sensitivities driven by 1-lepton channel are compareable between the analyses. \\
-%%%%%%%%
-\input{tex/Result/fig_contLimit.tex}
+For grids $\xhalf$ and $\varx$ that has been the main target in previous analyses, 
+the exclusion limits are pushed forward by about $100\gev\sim400\gev$ in gluino mass at the same mass splitting.
+The merit of the improved analysis can be clearly acknowledged, 
+given that the cross-section of gluino pair production rapidly falls with respect to increased gluino mass which is about $1/3$ by every $200\gev$ (i.e. the limit improvement by the increased data statistics is $\sim 100 \gev$). 
+Upto $2\tev$ of gluino mass is excluded with the nearly massless LSP scenario, 
+while it also reaches about $1.9\tev$ of gluino mass for case with $\mLSP<1\tev$. 
+More radical improvement is seen in the $\DMtw$ and $\DMth$ grids, since no analysis has been provided dedicatedly sensitivity to the scenario before. The sensitivity improvement is about $200\gev\sim450\gev$ in gluino mass with the same mass splitting, and the $1.2\tev-1.6\tev$ is excluded by this study. 
+
+\clearpage
+%%%%%%%%%%%%
+\begin{figure}[h]
+  \centering
+%    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_onestepCC_fixSigXSecNominal_x12_hypotest__1_harvest_list.pdf}{}
+%    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_onestepCC_fixSigXSecNominal_varx_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_symQQC1_fixSigXSecNominal_x12_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_symQQC1_fixSigXSecNominal_varx_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_symQQC1_fixSigXSecNominal_dM20_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_symQQC1_fixSigXSecNominal_dM30_hypotest__1_harvest_list.pdf}{}
+    \caption{
+    Exlusion limit for the benchmark model \textbf{QQC1QQC1} presented in the (a) $\xhalf$ (b) $\varx$ (c) $\DMtw$ (d) $\DMth$ grids. Observed limits are shown by the solid red lines, while the expected limit are expressed by the dashed blue lines with yellow $1\sigma$ bands. 
+The previous 1-lepton search result by ATLAS with 14.8 $\ifb$ \cite{strong1L_ICHEP2016_CONF} are overlayed (observed limit: shaded area, expected limit: black dashed line). 
+The magenta areas are the exclusion limit directly quoted from the reference \cite{strong1L_ICHEP2016_CONF}, while the cyan ones are the calculated potential achivable exclusion by the previous search using the same SRs.
+All limits correspond to 95$\%$ CL.
+  \label{fig::Result::exclLimit::GG_onestepCC} }
+\end{figure}
+%%%%%%%%%%%%
+
+\clearpage
+%%%%%%%%%%%%
+\paragraph{\underline{\textbf{QQC1BTC1}}} \mbox{} \\
+Figure \ref{fig::Result::exclLimit::GG_QQC1BTC1} exhibits the limits for model \textbf{QQC1BTC1}, the reference model for BT benchmarks (Table \ref{tab::Introduction::modelsBV}). As the sensitivity is mainly driven by the BT bins for this model, it is relatively more affected by the $\sim 2\sigma$ excess observed in the SR High-x BT, which drastically weakens the limit in part of the $\varx$ grid. Nevertheless, the overall exclusion reach is comparable to that of the \textbf{QQC1QQC1} model, amounting to $1.9\tev\sim2\tev$ in gluino mass for $\mLSP <1\tev$. As the the asymmetric decays of gluino have never been interpreted before, this is the first explicit constrains put on such class of models. \\
+
+Potential exclusion that could have been addressed by the previous 1-lepton search in ATLAS with 14.8 $\ifb$ \cite{strong1L_ICHEP2016_CONF} are shown by the cyan shaded areas. The sensitivity improvement is similar to the case of \textbf{QQC1QQC1},
+except for $\DMtw$ and $\DMth$ grids that are relatively easy to explore even without dedicate soft-lepton selections since top-quarks decay can emit hard leptons. 
+
+%%%%
+\begin{figure}[h]
+  \centering
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_QQC1BTC1_fixSigXSecNominal_x12_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_QQC1BTC1_fixSigXSecNominal_varx_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_QQC1BTC1_fixSigXSecNominal_dM20_hypotest__1_harvest_list.pdf}{}
+    \subfig{0.48}{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_QQC1BTC1_fixSigXSecNominal_dM30_hypotest__1_harvest_list.pdf}{}
+    \caption{Projected exlusion limit (95$\%$ CL) for benchmark model \textbf{QQC1BTC1} presented in (a) $\xhalf$ (b) $\varx$ (c) $\DMtw$ (d) $\DMth$. Observed limits are shown by the solid red lines, while the expected limit are expressed by the dashed blue lines with yellow $1\sigma$ bands. 
+Potential achivable exclusion by the previous 1-lepton search in ATLAS (14.8 $\ifb$) \cite{strong1L_ICHEP2016_CONF} are shown by the cyan shaded areas. 
+All limits correspond to 95$\%$ CL.
+\label{fig::Result::exclLimit::GG_QQC1BTC1} }
+\end{figure}
+%%%%%%%%%%%%
+
+
+
+\clearpage
+%%%%%%%%%%%%
+\paragraph{\underline{\textbf{TTN1TTN1}}} \mbox{} \\ 
+The exclusion limit for the model \textbf{TTN1TTN1}, the reference model for the 3B benchmarks (Table \ref{tab::Introduction::modelsBV}) is shown in Figure \ref{fig::Result::exclLimit::GG_ttn1}. The observed and expected limits largely agree reflecting that the observed data yields in \textbf{3B} SRs are fairly consistent with the expectation.  \\
+
+The exclusion limit provided by the previous ATLAS analyses (multi-$b$: \cite{strong3B_ICHEP2016_CONF}, same-sign leptons or three leptons: \cite{strongSS3L_ICHEP_CONF}) are displayed by the shade area. 
+The most prominent update is around the diagonal region with the mass splitting $\dmg$ below $200\gev$, where the explicit limit is set for the first time. 
+On the other hand, there is seemingly no improvement in the direction toward higher gluino mass. This is because the compared past limit is provided by the multi-$b$ analysis where the combination of both 0-lepton and 1-lepton channel is performed, drastically enhancing the sensitivity.  \\
+
+%%%
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=140mm]{figures/Result/exclContour/atlascls_wband1_wfixSigXSecband1_showcms0_myAna_tag858_objRep_shapeSys_excl_GG_symTTN1_fixSigXSecNominal_x12_hypotest__1_harvest_list.pdf}
+    \captionof{figure}{Exlusion limit for benchmark model \textbf{TTN1TTN1}.
+      Observed limit is shown by the solid red line, while the expected limit are expressed by the dashed blue line with a yellow $1\sigma$ band. The past result provided by ATLAS (multi-$b$: \cite{strong3B_ICHEP2016_CONF}, same-sign leptons or three leptons: \cite{strongSS3L_ICHEP_CONF}) is overlayed (observed limit: magenta shade, expected limit: black dashed line), which is mostly given by the multi-$b$ analysis where the combination of 0-lepton and 1-lepton channel is performed. All limits correspond to 95$\%$ CL.
+}
+    \label{fig::Result::exclLimit::GG_ttn1}
+  \end{center}
+\end{figure}
 %%%%%%%%%
 
-The exclusion limits for all the 45 models and grids are calculated similarly. Observed limits are compared in Figurere \ref{fig::Result::combLimit::BV1}-\ref{fig::Result::combLimit::3B2}. Models in the same BV/BT/3B type (defined by the different tables in Table \ref{tab::Introduction::modelsBV} - \ref{tab::Introduction::models3B}) are overlaid in the same plot. Though the acceptance after the 1-lepton pre-selection are similar between them, the final seinsitivity does vary depending on the branching into 1-lepton final state of the model which has relatively a wide variety. This ends up in $300\gev\sim400\gev$ of differece in gluino mass at the largest. This on the other hand means that the models with less sensitivity can be fully recovered by the combination with 0-lepton final state. Aside such several models with small 1-lepton branches, the variation is typically $100\gev\sim200\gev$, which indicates inclusive acceptance by the analysis.
 
 
-%%%%%%%%
+
+\clearpage
+%%%%%%%%%%%%
+\paragraph{\underline{\textbf{Other benchmark models}}} \mbox{} \\ 
+The exclusion limits for all the 45 models and grids are calculated similarly. 
+Observed limits are compared in Figure \ref{fig::Result::combLimit::BV1}-\ref{fig::Result::combLimit::3B2}. 
+BV/BT/3B benchmark models (defined respectively by Table \ref{tab::Introduction::modelsBV} - \ref{tab::Introduction::models3B}) are overlaid in the same plot respectively. 
+Though the acceptance after the 1-lepton pre-selection are similar between them, the final sensitivity does vary depending on the branching into the 1-lepton final state which has a relatively wide variety. This ends up in $300\gev\sim400\gev$ of difference in gluino mass at the largest. On the other hand, this implies that the models with less sensitivity can be fully recovered by the combination with 0-lepton final state. Aside such several models with the small 1-lepton branches, the variation is typically $100\gev\sim200\gev$, which confirms the inclusiveness of the analysis.
+
+
+%%%
 \input{tex/Result/fig_combLimit.tex}
-%%%%%%%
+%%%%%%%%%%%%
 
 
 
-%\subsection{Discussion}
+
+\input{tex/Result/xsecUL.tex}

@@ -1,3 +1,8 @@
+pileup pile-up
+c-jet $c$-jet
+b-jet $b$-jet
+light flavor light-flavor
+
 while read line ; do
     orig=`echo $line | cut -d " " -f 1`
     new=`echo $line | cut -d " " -f 2`

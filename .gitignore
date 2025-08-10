@@ -8,6 +8,9 @@
 *.out
 *.fls
 *.toc
+*.run.xml
 *.root
 dthesis.log
-figures_all
+figures_all/
+figures_linked/
+reference/

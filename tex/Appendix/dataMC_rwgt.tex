@@ -1,0 +1,31 @@
+%\clearpage
+\subsection{Data vs Reweighted MC in the Pre-selection Regions} \label{sec::Appendix::dataMC_rwgt}
+Following plots (Figure \ref{fig::BGestimation::DataMCPreselHardBV_rwgt1}-\ref{fig::BGestimation::DataMCPresel3B_rwgt2}) present the data/MC comparison in the pre-selection regions that are shown in Sec. \ref{sec::BGestimation::dataMC},
+with the MC events of $\wjets$ and $\ttbar$ are reweighted event-by-event by:
+\begin{align}                                                                                 
+\begin{cases}
+y & = 1 - 0.1 \times (\nJetNoGev-2) \mbox{\phantom{MMMMMMMMMMM}} (\wjets) \nn \\
+y & = 1.05 \times \left[ 1 - 0.061 \,\times p_T(\ttbar) \right] \mbox{\phantom{MMMMMMk}} (\ttbar, \mbox{@1L, 2L pre-selection regions}) \nn \\
+y & = 1.4 \times \left[ 1 - 0.061 \,\times p_T(\ttbar) \right] \mbox{\phantom{MMMMMMM}} (\ttbar, \mbox{@3B pre-selection regions}). 
+\end{cases} \\
+\label{eq::MCrwgt_coeff}
+\end{align} 
+
+The MC mis-modeling discussed in Sec. \ref{sec::BGestimation::dataMC}, primarily in terms of jet activity (jet $\pt$ or $\meffInc$), is shown to be largely recovered by the reweighting, supporting the conjecture that the mis-modeling is mainly around the ISR/FSR radiation. The linear coefficiencies in Eq. (\ref{eq::MCrwgt_coeff}) are chosen so that the mis-modeling is maximally cured. Note that these optimal coefficiencies vary depending on the selection, which is the main reason why this reweighting is not seriously employed as the correction in the estimation. Instead, the reweighting is used in the envelope calculation of the extrapolation uncertainty due to the MC mis-modeling (Sec. \ref{sec::Uncertainties::nonClosure}). \\
+
+%%%%%%%%%%%%
+\underline{\textbf{1LBV pre-selection region}} 
+\input{tex/BGestimation/fig_DataMCPreselHardBV_rwgt.tex}  
+%%%%%%%%%%%%
+\clearpage
+\underline{\textbf{1LBT pre-selection region}} 
+\input{tex/BGestimation/fig_DataMCPreselHardBT_rwgt.tex}   
+%%%%%%%%%%%%
+\clearpage
+\underline{\textbf{2LBT pre-selection region}} 
+\input{tex/BGestimation/fig_DataMCPresel2LBT_rwgt.tex}
+%%%%%%%%%%%%
+\clearpage
+\underline{\textbf{1L3B pre-selection region}}  
+\input{tex/BGestimation/fig_DataMCPresel3B_rwgt.tex}
+%%%%%%%%%%%%

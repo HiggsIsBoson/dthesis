@@ -1,0 +1,153 @@
+\chapter{Discussion} \label{sec::Discussion}
+In this chapter, the impact and implication of the result is discussed,
+particularly about the comparison with the other gluino search analyses using the similar dataset as mentioned in \ref{sec::Introduction::ExpConstColliders},
+as well as the unique achivements done by the study.
+A short remark about the future outlook is attached concluding the chapter. \\
+
+%%%%%%%%%%%%%%%
+\section{Comparison with the Other Up-to-date LHC Searches}
+Figure \ref{fig::Discussion::LHCLimitGG} show the obtained limits by the study on (a) \textbf{QQC1QQC1} ($\xhalf$ grid) and (b) \textbf{TTN1TTN1} which are the conventionally studied gluino decay chains in the 1-lepton final,
+together with those provided by the other ATLAS/CMS searches appearing in the Figure \ref{fig::Introduction::LHCLimitGG}-\ref{fig::Introduction::LHCLimitGtt} in chapter \ref{sec::Introduction::ExpConstColliders}.
+%1-leptonで主にtargetとされてきた1-step, Gttについて。
+%（1章のFigure \ref{}に対応させてる. ATLASの14.8とも比較はresult参照）
+\paragraph{Sensitivity to decay chain \textbf{QQC1QQC1} ($\xhalf$ grid)} \mbox{} \\
+Compared with the ATLAS 0-lepton analysis \cite{ATLAS_SUSY_strong0L}, 
+the result of this thesis addresses a comparable sensitivity in the massless LSP limit,
+and outperforms in the massive LSP scenario as the 1-lepton final state is generally advantageous in the additional background rejection power by $\mt$. 
+%
+Quite similar sensitivities iare seen between the thesis analysis and the CMS 1-lepton one \cite{CMS_SUSY_strong1L_dPhi}, 
+except for the region with heavy LSP where the kinematics is not very hard and therefore benefited by the combined multi-$b$in fit the most.
+The CMS SUSY analyses do much better job in this front as they often employ an incredibly large number of signal region bins (30-160).
+Note that the absence of limit in the diagonal region by CMS is because it only considers the on-shell $W$-boson emission in the interpretation. 
+
+
+
+\paragraph{Sensitivity to decay chain \textbf{TTN1TTN1}} \mbox{} \\
+The ATLAS multi-$b$ analysis \cite{ATLAS_SUSY_strong3B} is quite advantageous in sensitivity for high mass gluino scenario, since it exploits the statistical combination between 0-lepton and 1-lepton signal regions as mentioned in previous chapter,
+though the observed limit is much worse due to the $\sim 2\sigma$ excess found in 0-lepton signal regions.
+The sensitivity driven by the 1-lepton signal regions are quite comparable between the three cases.
+
+
+
+\paragraph{Sensitivity to other decay chains} \mbox{} \\
+Although the other gluino decay chains (e.g. asymmetric decaying gluinos) have never been explicitly interpreted into limit before,
+those signatures could still be captured by the ordinary signal regions. 
+For instance, the CMS analyses are suppose to address reasonable sensitivity to most of the decay chains with typical mass configuration,
+giving the wide phase space coverage of the signal regions and the large number of signal bins.
+However, an exception is expected in the case of the DM-oriented scenario where LSP and NLSP EW gauginos are compressed, 
+which requires particular consideration in event selection.
+One of the nice thing about this thesis is that it provides optimized sensitivity to such scenario. \\
+
+\begin{figure}
+  \centering
+    \subfig{0.48}{figures/Discussion/limits_QQC1QQC1.pdf}{}
+    \subfig{0.48}{figures/Discussion/limits_TTN1TTN1.pdf}{}
+    \caption{Constraints set by this analysis (blue) and other up-to-date ATLAS/CMS analyses (red/green) on (a) \textbf{QQC1QQC1} with the chargino mass is set to the midmost between the masses of gluino and the LSP ($\xhalf$ grid), and on (b) \textbf{TTN1TTN1}.}
+    \label{fig::Discussion::LHCLimitGG}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%
+\section{What is Unique/Important in This Study?}
+\paragraph{Design of dedicated event selection for the DM oriented scenario.} \mbox{} \\
+In the previous ATLAS 1-lepton analyses \cite{strong1L_ICHEP2016_CONF}\cite{strong1L_3p2fb_paper}, there has been a signal region indeed targeting scenarios with compressed NLSP and LSP (``Low-x''). However, it was only optimized to the case with massless LSP (low-$x$ region in the $\varx$ grid) where the soft lepton selection was not applied since the emitted lepton can be hard due to the heavily boosted NLSP. Giving that the massless LSP is no longer realistic for many reasons (see Sec. \ref{sec::Introduction::DMconstraint}), the focus is shifted to the massive LSP scenario in this analysis where the soft lepton selection is explicitly applied. Similarly, the CMS analyses do not contain the soft lepton selection in their signal region. Therefore, the DM-oriented grids are likely to have the optimized sensitivity for the first time in this study. \\
+
+
+
+\paragraph{Establishment of a refined background estimation technique.} \mbox{} \\
+The most important achivement of this study may be the establishment of the object replacement method; 
+from the refinement of the previous studies, to the implementation in the analysis with the conventional kinematical extrapolation method working together.
+The dependency on simulation is then dramatically reduced as a result, 
+enhancing the confidence in our background estimation 
+by replacing the main systematic uncertainty from the theoretical uncertainty (which evaluation is in fact often quietionable) to the statistical uncertainty regarding to the control region statistics.
+This is a highly helpful aspect towards claiming the discovery once excesses are found, since the uncertainty can be reduced just by adding data statistics. In a longer term, the object replacement method is supposed to benefit even more,
+as heavier gluino will be targeted with tighter selections in the future analyses
+in which more extreme phase space will be explored where MC is supposed to be even more unreliable. \\
+
+There is one thing that has to be remarked that the idea of object replacement itself is not original to this work.
+One of the most famous example of such type of estimation in the past might be the ``tau embedding'' performed in the Higgs analysis ($h\ra \tau\tau$) in ATLAS Run1 \cite{tauEmbedding}.
+This is to estimate the $Z\ra\tau\tau$ background from $Z\ra\mu\mu$ data events, by replacing muons into simulated tau decays.
+Replaced events are re-input in the detector simulation, in order to reduce the instrumental systematics.
+This is however too computationally costly for search analyses where instrumental systematics has little impact in general. 
+Therefore, a simplified version has been proposed where detector effect is emulated instead of simulated (``tau replacement'') \cite{tauReplacement}.
+The first implementation in the published analysis is done by CMS in Run1 \cite{CMS_SUSY_jetMET_Run1} (0-lepton, $\mathcal{L}=20.3 \,\,\ifb$).
+The author has been working on the refinement and implementation into the ATLAS analysis which is done for the first time in this work.
+The main difference between the CMS implementation is the use of MC; 
+while it is carefully designed to ensure the object-kinematics orthogonality (Eq. \ref{eq::BGestimation::objRep::orthKineObj}) (i.e. lepton's efficiency is parameterized only by the feature of the lepton such as $\pt$ and $\eta$ etc.) in this analysis, CMS takes an opposite philosophy where lepton efficiency is parameterized by as many event-level kinematical variables as possible. This might lead to some difference in estimation in highly extreme phase space. \\
+
+An small improvement is also made in the context of the kinematical extrapolation method, with a liitle more complete assignment of theoretical uncertainty.
+Conventionally, it is assigned based only on the known effects, even if an unaccountable mis-modeling is found on top of those since it had been supposed to be the best thing one can do. 
+This study makes one more step forward;
+the effects from ``unknown theory systematics'' is approximately expressed through a course of kinematic reweightings (see Sec. \ref{sec::Uncertainties::nonClosure}), and impact is evaluated quantitatively. Although since the method is not first-principle thus is still a sort of ``the best thing one can do'', it is the first time that the uncertainty due to ``unknown systematics'' is assigned in the analysis, reducing the risk of being hit by unaccounted effects. \\
+
+
+\clearpage
+\paragraph{First interpretation on a comprehensive classes of the gluino decay chains.} \mbox{} \\
+%ご覧の通り, 過去にlimitが調べられているgluino decay chainsの数は非常に少ない (fig).
+The poor variety in decay chains considered in ATLAS/CMS SUSY searches has been always an one of the most outstanding issue.
+As for gluino pair production, only 6 decay scenarios have been targeted and interpretated so far.
+This is not comprehensive at all, and it is hard for one to judge if the provided mass reaches are general or not. \\
+
+The full-model oriented approach is then gradually attempted recently.
+The most popular study is done with the phenomenological MSSM (pMSSM), a simplified framework of MSSM in which only 18 kinemtically important parameters are set free.
+It is basically a parameter scan in a 18-dimensional space, generating a bunch of points of signal models with inclusive decay patterns
+(ATLAS Run1: \cite{ATLAS_Run1_pMSSM}\cite{ATLAS_Run1_DMpMSSM}, CMS Run1: \cite{CMS_MSSM_Run1}).
+Though much more comprehensive, it in turn suffers from a couple of presentational problems; 
+the limit is hardly expressed by the mass reach hence non-intuitive;
+the result is so model dependent that it is impossible to re-interpreted to the other models. \\
+
+On the other hand, the presentation in this study largely addresses all of the problem;
+this is the first study explicitly testing each direct/1-step gluino decay chain that can be targeted by 1-lepton final state;
+limits are presented in terms of mass reach;
+model-independent upper limit on the excluded cross-section is also provided so that any model can be tested based on the result. \\
+
+
+%%%%%%%%%%%%%%%
+\section{Future Prospect}
+The future LHC run schedule is schematized in Figure \ref{fig::Discussion::HLLHC}.
+After the current Run2 ($\mathcal{L}\sim 150\,\,\ifb$) and following phase-1 upgrade, 
+Run3 is planned to take place in which another $150\,\,\ifb$ is expected in 4-year of the operation. The HL-LHC project (High-Luminosity LHC) \cite{HLLHC} is then planned after Run3, 
+with a large scale upgrade both in terms of the accelerator to boost the luminosity and the detectors to cope with more severe radiation environment (phase-2 upgrade). 
+%In ATLAS, whole current inner detector is planned to replaced by a new silicon detector. \\
+The HL-LHC physics runs are planned to be operated with a center-of-mass energy of $14\tev$, accumulating $\mathcal{L}\sim 3000\,\,\ifb$ of data in about 10 years. \\
+%\footnote{HL-LHCのあいだに33TeVというambitousなproposalもある.}
+
+Gluino seach will keep interesting as it has no experimental or phenomenologically implied upper limit in its mass. 
+The limit can be easily extended by keep applying tighter selection, as the background separation becomes easier with exploring heavier gluinos. 
+%Although the sensitivity is going to be always limited by data statistics, 
+%sensitivityは常にdata statにlimitされる.
+%ただし注意しないといけないのは感度を上げるためにはdataはfactorで増やす必要があり, statの改善にtake increasingly longer time.
+The search sensitivity is expected to extend upto $2.5\tev\sim3\tev$ in gluino mass with $\mathcal{L}\sim 3000\,\,\ifb$ (Figure \ref{fig::Discussion::SUSY_HLLHC}).
+%quark-gluon taggingやboosted top-taggingなどが面白いかもしれない.
+
+
+\figNoH[170]{Discussion/HLLHC.pdf}
+{The time-scale of current LHC and foreseen HL-LHC project \cite{HLLHC}.}
+{fig::Discussion::HLLHC}
+
+\figNoH[130]{Discussion/gluino_SUSY_HLLHC_ATLAS.pdf}
+{Expected discovery reach ($5\sigma$) and exclusion limit (95$\%$ CL) with the whole Run2-3 dataset ($\mathcal{L}\sim 300\,\,\ifb$) and HL-LHC dataset ($\mathcal{L}\sim 3000\,\,\ifb$) \cite{SUSY_HLLHC}.}
+{fig::Discussion::SUSY_HLLHC}
+
+
+
+%Within the scope of SUSY,
+%より短期的にはEW gaugino search面白い.
+%これには二つ理由がある
+
+%- 特にhiggsino LSPやdark matter oriented scenarioから支持されるcompressed spectra searchが
+%experimentally challingingな
+
+
+
+
+%
+%
+%
+%
+%
+%
+%
+%
+

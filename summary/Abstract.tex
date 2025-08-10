@@ -1,92 +1,95 @@
-%\documentclass {article}
+\documentclass {article}
 \setlength{\topmargin}{-1.5cm}
 \setlength{\oddsidemargin}{-0.3cm}
 \setlength{\evensidemargin}{-0.3cm}
 \setlength{\textwidth}{16.5cm}
 \setlength{\textheight}{23cm}
-%\usepackage{graphicx}
-%\usepackage{float}
-%\usepackage{url, braket, setspace}
-%\usepackage{amsmath,amsthm,amssymb,bm}
-%\usepackage{hyperref}
 
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url, braket, setspace}
+\usepackage{amsmath,amsthm,amssymb,bm}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{caption}
+
+\input{alias.tex}
 
 %%%%%%%%%%%%
 
-%\begin{document}
+\begin{document}
 
 %\section*{Abstract} 
 %\paragraph{Search for Gluinos using Final States with One Isolated Lepton in the LHC- ATLAS Experiment \mbox{\phantom{MMMMMM}} Shion Chen}
 
+%\begin{center}%
+%論文要旨
+%\end{center}
 
-\begin{center}
-論文要旨
-\end{center}
 
-This thesis presents the search for gluinos via proton-proton collisions with the center-of-mass energy of $\sqrt{s}=13\tev$ at Large Hadron Collider (LHC), through examining the final state with exactly one leptons.  \\
+\begin{figure}[H]
+\centering
+\includegraphics[width=160mm]{figures/title.pdf}
+\captionsetup{labelformat=empty}
+\caption{}
+\end{figure}
 
-%Despite the enormous success of the Standard Model in particle physics, there are still quite a room for unrevealed mysteries of universe;
-Despite the enormous success of the Standard Model (SM) in particle physics, there are still a number of problems left to be solved such as the problem of diverging higgs mass and the unaccounted presence of dark matter and so on.
-%as well as for the persue toward the ``theoy of everything'' with grand unification and gravity.
-It is then strongly motivated to extend the Standard Model, and the Minimal Supersymmetric Standard Model (MSSM) has been one of the most applealing candidates, introducing a boson-fermion symmetry (super-symmetry; SUSY). 
-SUSY theories generally predict another set of particle contents with respect to SM, with the masses potentially accessible by experiments.
-Numerous experiments have been performed searching for SUSY particles both directly or indirectly.
+Despite the enormous success of the Standard Model (SM) in particle physics, there are still a number of problems left to be solved such as the hierarchy problem in higgs mass and the unaccounted presence of dark matter and so on.
+It is then strongly motivated to extend the Standard Model, and super-symmetry (SUSY) has been one of the most appealing framework for it.
+Since it introduces a boson-fermion symmetry in the theory, SUSY theories generally predict another set of particle contents with respect to SM, with the masses potentially accessible by experiments.
+Numerous experiments have been performed searching for SUSY particles either directly or indirectly.
 Though no evidence has been claimed ever, searches in the LHC are still highly motivated since it allows to probe heavier regions with the unprecedented high center-of-mass energy with increased data statistics.
 Gluino search is particularly interesting due to the large production cross-section that fully exploits the merit of hadron collider, as well as absence of theoretical or experiments constrains. \\
 %The motivation of gaugino search is increasingly emerging in light of the discovery of higgs boson in its mass of $125\gev$, and gluino search is particularly interesting due to the large production in LHC.   \\
 
-This thesis presents the search for gluinos via proton-proton collisions with the center-of-mass energy of $\sqrt{s}=13\tev$ at LHC, by focusing on the final state with exactly one leptons. 
-Using the improved analysis technique and increased data with 36.1 fb$^{\-1}$ of integrated luminosity collected in the ATLAS detector, the sensitivity to heavier gluino is drastically gained.  \\
+This thesis presents the search for gluinos in proton-proton collisions at a center-of-mass energy of $\sqrt{s}=13\tev$ in the Large Hadron Collider (LHC), 
+by focusing on the final state with exactly one lepton. 
+%Minimal Supersymmetric Standard Model (MSSM)
 %\cite{fineTuning}
-
-In this analysis, the main improvement with respect to past searches are two-fold: 
+With respect to the past searches, the sensitivity to heavier gluino is drastically gained using the improved analysis technique and updated data statistics (36.1 fb$^{-1}$ of integrated luminosity) collected in the ATLAS detector.  The main improvements in the analysis are two-fold: 
 \begin{itemize}
-\item Widen the scope of search in terms of variety of gluino decay chains and the scenario of SUSY mass spectra.
-The one problem in the past search was that only a few typical gluino decays have been studied, while a number of decays remain uncovered.
-In this new analysis, we started from the most general cases by considering all the possible gluino decays, and converge into 45 chains that could give different kinematical behavior.
-Constraint is studied for all the 45 decay chains. In addition, we also focus on a scenario generally motivated by observed relic of dark matter where the lightest two EW gauginos have the masses comppressed.
-Signal regions are segmented with 18 different bins to address all the decay models, with particular attention to paid on cut optimization reconsiling the inclusiveness and sensitivity. \\
+\item Widening the scope of search in terms of variety of gluino decay chains and the scenario of SUSY mass spectra.
+A critical problem in past searches is that only a few typical gluino decays have been studied while a number of decays remain uncovered.
+In this analysis, a comprehensive converage over all the possible gluino decays are given, and in total 45 decay chains are targeted simultaneously.
+In addition, a particular focus is placed on a scenario motivated by observed dark matter relic density where the lightest two electroweak gauginos have the masses comppressed.
+%Signal regions are segmented with 18 different bins to address all the decay models, with special attention in cut optimization reconciling the inclusiveness and sensitivity. \\
 
-
-\item An introduction of a dedicated data-driven strategy of background estimation.
-One general characteristic of new physics search is that it has to focus on an extreme phase space that is often ill-modeled by MC simulation due to the sizable contribution from higher orer pertuabation.
-In this analysis, a combination of semi-data driven method in which the MC prediction is corrected in a set of control regions, and a fully data-driven ``object replacement method'' 
-where one of the lepton in 2-lepton region is replaced into virtual mis-identified lepton or tau, estimating the yield resulting in 1-lepton regions including the signal regions.
-The estimation is shown to be more robust compared with conventional simulation-based method. \\
+\item Introduction of a dedicated data-driven strategy in background estimation.
+One general characteristic of new physics search is that it has to focus on an extreme phase space that is often ill-modeled by MC simulation due to the sizable contribution from the higher-order terms in the perturbation series.
+In this analysis, a combination of 1) conventional semi-data driven method in which the MC prediction is corrected in a set of control regions, and 2) a newly introduced fully data-driven method (``object replacement method'') is implemented, enhancing the robustness compared of the background estimation. \\
 \end{itemize}
 
 
-
-\fig[160]{histpull_SRs.eps}
-{Expected background level (colored stack) and observed number of data events in the 18 signal region bins.}
+\fig[160]{histpull_SRs.pdf}
+{Expected background level (colored stacks) and observed number of data events (black points) in the 18 signal region bins.}
 {SRpull}
 
 
 %%%%%%%%%%
 \begin{figure}[h]
   \centering
-    \subfigure[]{\includegraphics[width=0.48\textwidth]{figures/excl_GG_symQQC1_fixSigXSecNominal_x12.eps}}
-    \subfigure[]{\includegraphics[width=0.48\textwidth]{figures/excl_GG_symQQC1_fixSigXSecNominal_varx.eps}}
-    \caption{ Exclusion limits obtained by the analysis on the reference model ($pp \ra \tg\tg,  \tg \ra q\bar{q} \tchic$) shown 
-  (a) in the $m_{\tg}-m_{\tLSP}$ plane where the mass of the intermediate chargino is set to the midmost between gluino and the lightest neutralino, or either 
-  (b) in the $m_{\tg}-x$ plane where $x:= (m_{\tchic}-m_{\tLSP})/(m_{\tg}-m_{\tLSP})$ and the lightest neutralino mass is set to $m_{\tLSP}=60\gev$. 
-  The limit set by up-to-date precious search \cite{2016ICHEP} is indicated by the grey shade.
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{figures/excl_GG_symQQC1_fixSigXSecNominal_x12.pdf}}
+    \subfigure[]{\includegraphics[width=0.48\textwidth]{figures/excl_GG_symQQC1_fixSigXSecNominal_varx.pdf}}
+    \caption{ Obtained exclusion limit on a reference model ($pp \ra \tg\tg,  \tg \ra q\bar{q} \tchic$), displayed in the
+  (a) $m_{\tg}-m_{\tLSP}$ plane where the mass of the intermediate chargino is set to the midmost between gluino and the lightest neutralino, or either in the
+  (b) $m_{\tg}-x$ plane where $x:= (m_{\tchic}-m_{\tLSP})/(m_{\tg}-m_{\tLSP})$ and the lightest neutralino mass is set to $m_{\tLSP}=60\gev$. 
+  The limit set by previous search \cite{2016ICHEP} is indicated by the magenta shade.
   \label{limit_symQQC1} }
 \end{figure}
 %%%%%%%%%%
 
 
 \fig[160]{3B_x12_obs.eps}
-{Observed exclusion limits on gluino decay chains targeted by the 3 b-tagged signal regions overlaid on a single plane. 
-For models involving an intermediate EW gaugino, the mass is set to the midmost between gluino and the lightest neutralino.}
+{Observed exclusion limits on the gluino decay chains targeted by the 3 b-tagged signal regions. 
+For models involving an intermediate electroweak gaugino, the mass is set to the midmost between gluino and the lightest neutralino.}
 {combLimit}
 
 No significant excess is found in the unblinded dataset as shown in Figure \ref{SRpull}, and exclusion limits are set on wide range of gluino decay scenarios. 
-The limit on process $pp \ra \tg\tg,  \tg \ra q\bar{q} \tchic$ is presented in Figure \ref{limit_symQQC1}, which has been commonly used as benchmark in past analysis.
-The limit extends about $100-300\gev$ by the increased dataset together with improved analysis, hitting nearly $2\tev$ in gluino mass. 
-Various other cases are also examined (part of them are shown in Figure \ref{combLimit}), and as a general conclusion, 
-it is confirmed that up to $1.7\tev - 2.0 \tev$ in gluino mass and up to $\sim 1\tev$ in the lightest neutralino mass is excluded for typical mass spectra, 
-while the limit extends up to $1.5\tev - 1.9 \tev$ in gluino mass in case of compressed EW gaugino masses ($\Delta M \sim 20-30\gev$) that is motivated by dark matter relic observations.
+The limit on process $pp \ra \tg\tg,  \tg \ra q\bar{q} \tchic$ is presented in Figure \ref{limit_symQQC1}, which has been commonly used as the benchmark in past analysis.
+The limit extends about $100-400\gev$ by the increased dataset together with improved analysis, hitting nearly $2\tev$ in gluino mass. 
+Various other cases are also examined (part of them are shown in Figure \ref{combLimit}).
+It is generally confirmed that up to $1.7\tev \sim 2.0 \tev$ in gluino mass and up to $\sim 1\tev$ in the lightest neutralino mass is excluded in case of typical mass spectra, 
+while the limit extends up to $1.5\tev \sim 1.9 \tev$ in gluino mass in case of compressed electroweak gaugino masses ($\Delta M = 20 \sim 30\gev$) that is motivated by dark matter relic observations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -96,4 +99,4 @@ while the limit extends up to $1.5\tev - 1.9 \tev$ in gluino mass in case of com
 %\bibitem {DM} 
 \end{thebibliography}
 
-%\end{document}
+\end{document}

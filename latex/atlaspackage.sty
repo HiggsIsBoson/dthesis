@@ -136,6 +136,8 @@
   % \RequirePackage[bottom]{footmisc}
   % Nicer tables - use \toprule, \midrule, \bottomrule instead of \hline
   \RequirePackage{booktabs}
+
+  \if 0
   % Several plots in a single figure
   \ifAPKG@subfigure%
     \RequirePackage[TABBOTCAP]{subfigure}
@@ -159,8 +161,10 @@
   % subfigure option needed if subfig(ure) is also used
   \RequirePackage[subfigure]{tocloft}
 
+  \fi
+
   % Remove dots in table of contents
-  \renewcommand{\cftdot}{}
+%  \renewcommand{\cftdot}{}
 
   % Typset anything with units using this package - also has very useful table formatting 
   % Declare a few options and standard units for siunitx that are otherwise missing
