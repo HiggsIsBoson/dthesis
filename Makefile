@@ -3,15 +3,16 @@ BIBTEX   = bibtex
 DVIPS    = dvips
 
 BASENAME = dthesis
+vref=20170731
 
-default: testpdflatex
+default: pdflatex
 #default: test
 
 
 test:
 	pdflatex  ${BASENAME}
 
-testpdflatex:
+pdflatex:
 	pdflatex  ${BASENAME}
 	pdflatex  ${BASENAME}
 	bibtex    ${BASENAME}
@@ -19,13 +20,19 @@ testpdflatex:
 	pdflatex  ${BASENAME}
 	pdflatex  ${BASENAME}
 
-testlatex:
+latex:
 	latex  ${BASENAME}
 	latex  ${BASENAME}
 	bibtex ${BASENAME}
 	latex  ${BASENAME}
 	latex  ${BASENAME}
 	dvipdf -sPAPERSIZE=a4 -dPDFSETTINGS=/prepress ${BASENAME}
+
+diff:
+	@echo "reference: $(vref)"
+	@latexdiff ../DoctoralThesis_backup_20170731/$(BASENAME).tex $(BASENAME).tex | tee diff_$(vref)_current.tex
+	ls -l diff_$(vref)_current.tex 
+	pdflatex diff_$(vref)_current.tex 
 
 
 #
