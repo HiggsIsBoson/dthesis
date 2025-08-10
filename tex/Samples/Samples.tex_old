@@ -1,0 +1,359 @@
+\section{Monte-Carlo Simulation}
+Monte-Carlo (MC) simulation is a highly powerful toolkit providing theoretical prediction on particle generation and expected evet kinematics, as well as detector response. The simulated event samples are used extensively from studying signal/background separation, performance evaludation to background estimation. \\
+
+The MC event generation is based on the differential cross-section in terms of 4-momentum space of outcome particles (``phase space'') provided by theory. Randomly generated events over the phase space are accepted on a rate proportional to the differential cross-section in the phase space point. \\
+
+In this section, an overview is given for the detail of the implemetation including the phenomenological description of particle interactions in LHC, cross-section calculation and other kinematical effects in event generation, and the summary of the simulated samples used in the analysis. \\
+
+
+\subsection{Phenomenology in a $pp$-collision}
+The processes involved in a $pp$-collision are schematized in Fig. \ref{fig::Samples::ppCollisionScetch}.
+%%%
+\fig[150]{Samples/ppCollisionScetch.pdf}
+{}
+{fig::Samples::ppCollisionScetch}
+%%%
+
+Thanks to the anti-screening nature of strong interaction (asymptotic freedom) the a proton-proton interaction can be fully characterized by a pictur of parton-parton interaction at the LHC energy. 
+The differenial cross-section describing transtion from an initial state with two partons ($a, b$) into a certain final state ($f$) is respresented by: 
+\begin{align}
+%\frac{d\sigma_{a,b \ra F}}{d\mathcal{O}} & = \int d\Phi \,\, |\mathcal{M}_{a,b \ra F}|^2 \,\, \delta \left( p^\mu_a + p^\mu_b - \sum_{i \in f} p^\mu_i   \right) 
+\frac{d\hat{\sigma}_{a,b \ra F}}{d\bm{y}} & = \frac{1}{2 \hat{s}_{ab}} d\Phi \,\, |\mathcal{M}_{a,b \ra F}|^2  
+\label{ppXsec}
+\end{align}
+where $\bm{y}$ respresents momenta of final state particles; $\mathcal{M}_{a,b \ra f}$ the matrix-element (ME); $d\Phi$ the phase space factor; and the flux factor $1/2\hat{s}_{ab}$.
+% phase space factorについてもうちょい
+
+The cross-section Eq. \ref{ppXsec} is then capsulated by the Parton distribution function (PDF) to translate from the parton-level cross-section to that of $pp$-interaction:
+\begin{align}
+\frac{\mathrm{d}\sigma_{pp\ra F}}{\mathrm{d}\bm{y}} & = \sum_{a,b\in (q,\bar{q},g)} \int_0^1 \mathrm{d}x_a \int_0^1 \mathrm{d}x_b \,\, f_i (x_a) f_j (x_b) \,\, \frac{d\hat{\sigma}_{a,b \ra F}}{d\bm{y}}.
+\label{ppXsecWithPDF}
+\end{align}
+$x_{a,b}$ denotes the momentum fraction of protons carried by the constituent partons $a,b$, and $f_i(x)$ is the proton PDF function defined by the propability density which $x$ obeies. $a$ and $b$ are finally added up with possible parton flavors, reflecting our ignorance about the initial parton flavors.
+Note that this convolution is not the addition at the amplitude level in $\mathrm{M}$ but rather a statistical procedure, which is guaranteed by the factorization theorem. \\
+
+Resultant quarks and gluons in the final state undergo hadronization, in which they are transformed into a collection of fragmented hadrons (``hadron jet''). This is particular the nature about strong interation known as ``confinement'' where the running coupling constant becomes larger for longer distance scattering and eventually diverges at the Laudau pole $Q^2\sim 200\mev$. Naively this will lead to infinite purtubative amplitudes of processes with $Q^2\sim 200\mev$, including small angle diffraction and pair production of quark and anti-quark out of vacuum. 
+\footnote{This is picture is incorrect giving the breakdown of perturbation, neverless enough to give an idea of the universal tendency toward non-perturbative region.}
+Those instantaneously generated partons are recombined eventually into hadrons with singlet color quantum number. Theoretically, hadronization can be characterized using the an universal frametation function $D(z)$ in the same internal structure of parton distribution function, representing the probability of finding a hadron with momentum fraction of z with respect to that of seed parton. \\
+
+Addtionally, often additional jets acompany from splitting legs of intial and final state partons. 
+They are referred as initial state radiation (ISR) or final state radiation (FSR). \\
+
+Finally, the protons providing the hard scattering partons are completely destroyed, no longer keeping the form as protons.
+The remnants will experience they own hadronization, resulting in a splash of permeating hadrons known as ``beam remnant''.
+Also, multiple parton-level hard scatterings (multiple parton interaction; MPI) occasionally take place within a single proton-proton interaction, where usually at least one of them ends up in cheap QCD scattering leaving low-$\pt$ jets.
+These sub-processes resulting soft renmants as the background of main HS are incusively referred to ``underlying events''.
+
+%The underlying event is a hadronic activity from a collision between partons of colliding hadrons
+%not contribute to a hard process. The underlying event includes effects from the hadronisation of
+%beam remnants and multiple 2 ! 2 parton interactions. 
+
+%quarkとgluonはQCDのcharacteristical negative beta functionによってanti-screeningが起こって
+
+
+\subsubsection{Parton Distribution Function}
+As PDF is purely determined by non-purtabative dynamic of QCD at lower scale.
+As the input for event simulation, it is usually taken from global fitting on experimental data of deep inelastic scaterings (DIS) or hadron-hadron collision.
+\footnote{The first principle calculation is strictly speaking doable by lattice QCD. Some results are presented by \cite{latticePDF}.}
+Several collaborations have performed combined fits to the datasets mostly from HERA and Tevatron, with different paramerization and fitting scheme. 
+The following sets recently provide results: PDF4LHC [65], NNPDF [66], CT14 [67], MSTW [61] and AZNLO [68]. The uncertainties
+mainly results from instrumental uncertainties in the input data, uncertainties on the strong coupling constant and the functional form of parameterization. 
+Fig. \ref{}  shows ...
+
+
+\subsubsection{Fixed-Order QCD Calculation}
+The matrix element in Eq. \ref{} is computed based on the QCD and EW theory, with truncated orders of purtabation.
+While the leading term in the purtabation (lowest order; ``LO'') dominates over the phase space, 
+the inclusion of high-order terms is significantly important for new physics search.
+The is because of the much smaller cross-section of signal procutions with respect to the SM processes,
+forcing one to explore the phase space where the bulk SM component is suppressed, 
+in order words the region where the LO contribution is largely suppressed and the higher-order effects addresses,
+to achive a reasonable S/N. \\
+
+The full calculation of higher-order terms are challenging givining the skyrocket increased number of loop diagrams.
+Currently, the cross-section calculation is available upto next-to-next-to-leading order (NNLO) or NNNLO for typical SM processes happening in LHC, and upto NLO level in event generation. As the largest contribution of the higher order effects are from ISR and FSR, there are a class of geneartors in the market particlualry focusing on computing the diagrams with the additional radiations (``multi-leg generators''). Saving the computing resources by omitting the loop diagrams, they can typically afford upto 4-9 additional partons at maximum. \\
+
+
+\subsubsection{Parton Showering}
+Aside with the straightforward  QCD matrix element calculation,
+the parton shower (PS) regime is another useful approach of describing dynamtic of addtional partons emission.
+It is based on following two important notions:
+
+\begin{itemize}
+\item Soft or collinear emission provide dominant contribution to extra parton emission from a parton.
+In a parton-level process: $ee \ra q\bar{q} g$ for a minimal example, the differential cross-section can be expressed:
+\begin{align}
+\frac{d\sigma_{q\bar{q}g}}{dx_1 dx_2} = \sigma_{q\bar{q}} \,\, \times \,\, \frac{\alpha_s}{2\pi} \frac{4}{3} \frac{x_q^2+x_{\bar{q}}^2}{(1-x_q)(1-x_{\bar{q}})}, \,\,\,\, x_i := 2E_i/\sqrt{s}
+\end{align}
+with $\sqrt{s}$ being the center-of-mass energy of the $ee$ system.
+The singularities correspond to collinear emission of the gluon ($x_q \ra 1$ or $x_{\bar{q}} \ra 1$) or soft gluon emission ($x_q \ra 1$ and $x_{\bar{q}} \ra 1$).
+These collinear and soft singularlities are universal to QCD, independent from type of processes. \\
+
+\item In the soft/collinear regime, the cross-section with an additional parton radiation ($\mathrm{d}\sigma_{n+1}$) can be factorized by a product of the original cross-section ($\mathrm{d}\sigma_{n}$) and splitting factor $P_{i \ra j k}$:
+\begin{align}
+\mathrm{d}\sigma_{n+1} = \mathrm{d}\sigma_n \left[ \sum_{j,k} \,  \frac{\alpha_s}{2\pi} \, \frac{dq}{q} \, \frac{dz}{z} P_{i \ra j k} (z) \right],
+\end{align}
+where the indices $i,j$ represent respectively the parent parton before and after the splitting, and $k$ the emitted parton. 
+$z$ is the momentum fraction the emitted parton carrying from the parent, and $q$ is the momentum transfer between the parton $i$ and $j$. $P_{i \ra j k}$ is known as the Dokshitzer–Gribov–Lipatov–Altarelli–Parisi (DGLAP) evolution equations computed from generic QCD analyses as:
+\begin{align}
+P_{q \ra qg} & = \frac{4}{3} \frac{1+z^2}{1-z}, \\
+P_{q \ra gq} & = \frac{4}{3} \frac{1+(1-z)^2}{z}, \\
+P_{q \ra gg} & = 3 \frac{z^4+1+(1-z)^4}{z(1-z)}, \\
+P_{q \ra q\bar{q}} & = \frac{z^2+(1-z)^2}{2},
+\end{align}
+\end{itemize}
+
+Based on these, the PS regimes allows one to recursive calulate in a picture of stepwise evolution, in contrast to that in the scattering amplitude approach where either initial and final state must be steadily defined beforehand. The probablity of emitting an extra parton at each step can be then represented, anagolous to the life time of instable particle decay, using the Sudakov form factors:
+\begin{align}
+S_{i}(q_1, q_2) = 1 - \exp{ \left( -\sum_{j,k} \int_{q^2}^{q_{\mathrm{max}}^2} \frac{\mathrm{d}Q^2}{Q^2} \int_{z_{\min}}^{z_{\max}} \frac{\alpha_s}{2\pi} P_{i \ra j k}(\hat{z}) \mathrm{d}\hat{z}  \right)},
+\label{eq::sudakov}
+\end{align}
+where $q_1$ and $q_2$ denote the virtuality of parent parton between and after splitting respectively.
+%sudakov fac. どう計算されたか
+The FSR in event simulation is implemented by stochastic evolultion of final state parton legs on the probability Eq. \ref{eq::sudakov}, with givning an arbitrary initial virtuality $Q$. The evoluton is terminated typically until the virtuality becomes $\sim 1\gev$. ISRs are simulated in similar manner but with backward evolution with increasing virtuality $q$ along the evolution.
+Generated sub-branches during the backward evolution are then evolved forward. The procedure is schematized as Fig. \ref{fig::Samples::backwardEvolution}.
+
+%%%
+\fig[110]{Samples/backwardEvolution.pdf}
+{}
+{fig::Samples::backwardEvolution}
+%%%
+
+Vaious implementation for the evolution exist, leading to a subtle difference in the final state kinamtics.
+The impact of the difference are quoted for theoretical uncertainty in the analysis. The qualification and assigned uncertainty will be discussed Sec. \ref{sec::Uncertainty}. \\
+
+%It also particularly goes along with MC simulation since it does not require any try and acceptance so that no seed events will be discarded, enabling a highly computationally efficient generation. \\
+
+Note that this shower evolution is fully pertubative yet include contribution from essentially arbitary orders of purtabation series (upto $n$-th order, where $n$ is number of parton branch splitting), however it does only take care of contribution from collinear and soft singularity. This is the main motivation for multi-leg generators that provides hard ME-level addtional partons to complement. One issue about this combined approach is the potential double-counting. The correcting scheme is commonly referred as ``matching'', which are largely categoriezd into two types: 
+
+\begin{itemize}
+\item Define the phase space that each ME and PS is responsible for. \\
+The most widely used algorithm is provided by Catani-Krauss-Kuhn-Webber (CKKW) algoriths or Michelangelo L. Mangano algoriths (MLM). The CKKW ...
+MLM ..
+
+\item General all jets by PS, and correct it by normalizing into the ME differential cross-section (ME correction).
+This type of scheme is employed by \pythia and .
+
+\end{itemize}
+
+
+
+\subsubsection{Hadronization}
+%(jav need change)
+A phenomenolocal approach is usually preferred in simulating hadronization, although the it can be formulated through an universal fragmentation function that has the same internal structure as parton distribution. In the string model [88,89], the confinement between partons induced by the color force is represented by a gluonic string. For a quark-antiquark pair, as the color charges move apart, the string is stretched, and its potential energy grows. When the energy becomes of the order of hadron masses, it becomes energetically favorable for the string to break and create a new quark-antiquark pair. The two segments of string will stretch and break again, until all the energy has been converted into quark-antiquark pairs connected by short strings.
+The cluster model [jav90,91] \cite{LundStringModel} relies on groupings of partons to form colorless clusters, after forcing the final state gluons to split into quark-antiquark pairs. The heaviest clusters can decay and split into smaller clusters. Most clusters will have masses below 3 GeV, and their decay into hadrons is simulated with three-body models with intermediate resonances.
+%Fragmentation function $D(z)$ is used to formulate the behavior ... \\
+
+
+%\subsubsection{Underlying Events}
+%A good understanding of underlying events is important from intrumental point of view, since it affects the calibrations of tracks %and objects. Several models and parameter tunes are available and are examined by data. Fig. \ref{}.
+%AZNLO in pythia 8
+%Perugia2012 in pythia 6
+
+
+\clearpage
+\subsection{Event Generators and the Simulated Dataset}
+The generators used in the analysis are as below:
+\begin{itemize}
+\item \sherpa
+\item \powhegbox v2~\cite{Alioli:2010xd}
+
+v1
+This generator uses the four-flavor scheme for the NLO matrix-element calculations together with the fixed four-flavor PDF set CT10f4. 
+\item \mgmc
+\end{itemize}
+
+
+Signal and background event are generated using preferred generators and setups. 
+Tab. \ref{tab::Samples::generators} summarizes the configurations for datasets used in the analysis.
+Given that the analysis typically explores the phase space with many jets, simulation on physics processes yielding less jets (e.g. $\wzjets$) or only soft jets at tree level (e.g. gluino production with compressed mass spectra) need dedicated modeling of ISR and FSR, therefore the multi-leg generators are preferred in general. 
+% powhegはなんでpoheg boxがいいってことになってんの？
+
+
+Hadronization is implemented in either generator based on the Lund's model through the JETSET algorism \cite{JETSET}.
+
+
+The summary of generator, hadronization schemea and tuning used for each physics process is in Tab. \ref{tab::Samples::generators}. 
+\tabsmall{c|ccccc}{
+  \hline
+  Physics process   &  Generator    &  $n_{\mathrm{ME}}^{\mathrm{a.p.}}$    &  PDF set       & Parton shower &  Tune  \\
+  \hline
+  \hline
+  SUSY processes    &  \mgmc 2.3.3 (LO)                                &  2       &  NNPDF2.3 LO    & \pythiaeight  & A14  \\
+  $\wzjets$         &  \sherpatwo  (NLO)                               &  4       &  NNPDF3.0 NNLO  & \sherpa       & \sherpa default  \\
+  $\ttbar$          &  \powhegbox\mbox{\phantom{k}}v2 (NLO)            &  1       &  CT10          & \pythiasix    & \textsc{Perugia}  \\
+  Single-top ($Wt$-ch.) &  \powhegbox\mbox{\phantom{k}}v2 (NLO)    &  1       &  CT10          & \pythiasix    & \textsc{Perugia}  \\
+  Single-top ($s$-ch.)  &  \powhegbox\mbox{\phantom{k}}v2 (NLO)    &  1       &  CT10          & \pythiasix    & \textsc{Perugia}  \\
+  Single-top ($t$-ch.)  &  \powhegbox\mbox{\phantom{k}}v1 (LO)     &  1       &  CT10f4        & \pythiasix    & \textsc{Perugia}  \\
+  Single-top ($Zt$-ch.) &  \mgmc 2.2.1 (LO)                        &  1       &  CTEQ6L1       & \pythiasix    & \textsc{Perugia}  \\
+  $\ttbar+W/Z/WW$   &  \mgmc 2.2.3  (LO)                               &  2       &  NNPDF2.3 LO   & \pythiaeight  & A14  \\
+  $VV$              &  \sherpa 2.1.1  (LO)                             &  3-4     &  CT10          & \sherpa       & \sherpa default    \\
+  \hline
+}
+{Setup of simulated SUSY signal and the Standard Model background samples.}
+{tab::Samples::generators}
+
+
+\tab{c|cc}{
+  \hline
+  Physics process   &  Cross-section $[\mathrm{pb}]$   &  Order   \\
+  \hline
+  \hline
+  SUSY processes    & See Fig. \ref{fig::Samples::xsec_GG} &   NLO+NLL  \\
+  $\wjets (\ra \ell\nu)$    & 20079                        &   NNLO  \\
+  $\zjets (\ra \ell\ell)$   & 1950                         &   NNLO  \\
+  $\ttbar$                  & 993.8                        &   NNLO+NNLL  \\
+  Single-top ($Wt$-channel) & 75.57                    &   NNLO+NNLL   \\
+  Single-top ($s$-channel)  & 10.32                    &   NLO  \\
+  Single-top ($t$-channel)  & 216.95                   &   NLO  \\
+  Single-top ($Zt$-channel) & 0.24                     &   LO  \\
+  $\ttbar+W/Z/WW$   &         1.36                     &   NLO  \\
+  $VV$              &         45.42                    &   NLO  \\
+  \hline
+}
+{Cross-section used for the simulated processes.}
+{tab::Samples::xsec}
+
+
+\subsubsection{$\vjets$}
+Events containing $W$ or $Z$ bosons with associated jets ($W$/$Z$+jets)~\cite{ATL-PHYS-PUB-2016-003} are simulated using the \sherpa2.2.1 generator~\cite{Gleisberg:2008ta}
+Matrix elements are calculated for up to two partons at NLO and four partons at LO\@ using the Comix~\cite{Gleisberg:2008fv} and OpenLoops~\cite{Cascioli:2011va} generators. 
+They are merged with the \sherpa2.2.1 parton shower~\cite{Schumann:2007mg} with massive $b$ and $c$ quarks using the ME+PS@NLO prescription~\cite{Hoeche:2012yf}.
+%% for sherpa 2.2 %%
+% The samples have been produced with a simplified scale setting prescription
+% in the multi-parton matrix elements, to improve the event generation speed.
+%A theory-based re-weighting of the jet multiplicity distribution is applied
+%at event level, derived from event generation with the strict scale prescription.
+The NNPDF3.0 NNLO PDF set~\cite{Ball:2014uwa} is used in conjunction with a dedicated parton-shower tuning developed by the \sherpa authors. 
+The $W/Z$+jets events are normalised to their NNLO cross-sections~\cite{Gavin:2010az}.
+
+
+ CT10~\cite{Lai:2010vv} PDF
+
+\subsubsection{$\ttbar$ and sinlep-top}
+
+the \textsc{powheg-box}  generator with the sets in the matrix-element calculations is used. 
+Electroweak $t$-channel single-top-quark events are generated using the \textsc{powheg-box} v1 generator. 
+
+For all top-quark processes, top-quark spin correlations are preserved (for the single-top $t$-channel,
+top quarks are decayed using MadSpin~\cite{Artoisenet:2012st}). 
+
+The parton shower, fragmentation, and the underlying event are simulated using
+\pythia6.428~\cite{Sjostrand:2006za} with the CTEQ6L1~\cite{Pumplin:2002vw} PDF set and the corresponding \textsc{Perugia2012} tune (P2012)~\cite{Skands:2010ak}. 
+
+The top-quark mass is set to $172.5 \GeV$. 
+
+The EvtGen v1.2.0 program is also used to describe the properties of the bottom and charm hadron decays in the \ttbar\ and the single-top-quark samples.
+
+The $h_{\rm damp}$ parameter, which controls the \pt\ of the first additional emission beyond the Born configuration, is set to the mass of the top-quark. 
+
+The main effect of this is to regulate the high \pt\ emission against which the \ttbar\ system recoils.
+The \ttbar\ events are normalised to the cross-sections computed at next-to-next-to-leading order (NNLO) with next-to-next-to-leading-logarithmic (NNLL) corrections~\cite{topxs:2014}.
+The single top quark events are normalised to the NLO+NNLL cross-sections for the $Wt$-channel~\cite{wtxs:2014oha} and to the NLO cross-sections for the $t$- and $s$-channels~\cite{Kant:2014oha}.
+
+\subsubsection{Di-bosons}                                                                          The diboson samples are generated by the \sherpa2.1.1 generators %~\cite{Gleisberg:2008ta}
+with the same PDF setup as the $W/Z$+jets samples described above.
+
+The fully leptonic diboson processes are simulated for five final states as summarized in Tab. \ref{}. The intermediated states are not specified therefore the contribution from Drell-Yan-like off-shell diboson and the interference between different diboson processes (e.g. $WW\ra\ell\ell\nu\nu$ and $WZ\ra\ell\ell\nu\nu$) are taken into account.
+
+To the contrary, the semi-leptonic diboson processes are simulated with designated intermediated boson states, in order to focus more on the matrix calculation with addtional partons. Four final states are genearted as summarized in Tab. \ref{}, together with the order of the calculation for respective number of addtional partons.
+
+%The processes are calculated for up to one parton (for $ZZ$) or no additional partons (for $WW, WZ$) at NLO and up to three partons at LO using the Comix and OpenLoops matrix-element generators.
+The cross-section is calculated at NLO order for each diboson channel $WW,WZ,ZZ$ ~\cite{ATL-PHYS-PUB-2016-002} to which the samples are normalized to.
+
+
+%\tab{ c | c | c}
+%{
+%                   &  & $\sigma$[pb] \\
+%\hline
+%$\ell\ell\ell\ell$ &  &   \\
+%$\ell\ell\ell\nu$  &  &   \\
+%$\ell\ell\nu\nu$   &  &   \\
+%$\ell\nu\nu\nu$    &  &   \\
+%$\nu\nu\nu\nu$     &  &   \\
+%\hline
+%}
+%{Full leptonic diboson samples used in the analysis.}
+%{tab::Samples::leptonic_diboson}
+
+
+
+\subsubsection{$\ttbar+W/Z/WW$}
+For the $t\bar{t}+W/Z/WW$ processes~\cite{ATL-PHYS-PUB-2016-005}, all events are simulated using \mgmc 2.2.2 at LO interfaced to the \pythia 8.186 parton shower model, 
+with up to two ($t\bar{t}+W$), one ($t\bar{t}+Z$) or no ($t\bar{t}+WW$) extra partons included in the matrix element. 
+The EvtGen v1.2.0 program~\cite{EvtGen} is used to describe the properties of the bottom and charm hadron decays. 
+The ATLAS shower and underlying-event tune A14 is used together with the NNPDF2.3~LO PDF set. 
+The events are normalised to their NLO cross-sections~\cite{Lazopoulos:2008,Campbell:2012}.
+
+
+
+\subsubsection{SUSY signals} \label{sec::Samples::SUSY}
+The signal samples are generated at leading order (LO) using \mgmc 2.2.2~\cite{Alwall:2014hca} with up to two extra partons in the matrix element, interfaced to \pythia8.186~\cite{Sjostrand:2007gs} for parton showers and hadronisation. 
+The CKKW-L matching scheme~\cite{CKKW} is applied for the matching of the matrix element and the parton shower, with the correspoding scale parameter set to 1/4 of the gluino mass. 
+The ATLAS A14~\cite{ATL-PHYS-PUB-2014-021} parameter tuning is used for the showering and the underlying events, together with the NNPDF2.3~LO~\cite{Ball:2012cx} PDF set. 
+The EvtGen v1.2.0 program~\cite{EvtGen} is used to correct the description of the bottom and charm hadron decays.
+
+The signal cross-sections are calculated at next-to-leading order (NLO) in the strong coupling constant, adding the resummation of soft gluon emission at next-to-leading-logarithmic accuracy (NLL)~\cite{Beenakker:1996ch,Kulesza:2008jb,Kulesza:2009kq,Beenakker:2009ha,Beenakker:2011fu}.
+The nominal cross-section and its uncertainty are taken from an envelope of cross-section predictions using different PDF sets and factorisation and renormalisation scales, as described in Ref.~\cite{Borschensky:2014cia}, considering only the four light-flavor left-handed squarks ($\tilde{u}_L$, $\tilde{d}_L$, $\tilde{s}_L$, and $\tilde{c}_L$). Fig. \ref{fig::Samples::xsec_GG} shows the calculated cross-section and the associated error. \\
+
+% -------------- xsec_GG
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=140mm]{figures/Samples/xsec_GG/xsec_GG.pdf}
+    \captionof{figure}{Cross-section for gluino pair production. Calculation is performed at NNLO+NNLL accuracy.}
+    \label{fig::Samples::xsec_GG}
+  \end{center}
+\end{figure}
+%-------------------------------     
+
+
+
+\subsubsection{Pileup simulation}
+All simulated events are generated with a varying number of minimum-bias interactions overlaid on the hard-scattering event to model the multiple proton-proton interactions in the same and the nearby bunch crossings.
+The minimum-bias interactions are simulated with the soft QCD processes of \pythia8.186 using the A2 tune \cite{ATLAS:2012uec} and the MSTW2008LO PDF set~\cite{Martin:2009iq}. 
+Corrections are applied to the samples to account for differences between data and simulation for trigger, identification and reconstruction efficiencies. \\
+
+
+
+\subsubsection{Detector Simulation and Emulation}
+The detector response to genearated particles is simulated by a full ATLAS detector simulation model \cite{ATLASFullSimu:2010wqa} based on \textsc{Geant4}~\cite{Agostinelli:2002hh}, for the background samples. \\
+
+The ATLAS fast simulation ~\cite{atlfast} is used for signal models marked as $\checkmark$ in Tab. \ref{tab::Introduction::modelsBV}-\ref{tab::Introduction::models3B} in Sec. \ref{sec::Introduction::targetModels}, as the economical alternative. This is based on a parameterisation of the performance of the electromagnetic and hadronic calorimeters and on \textsc{Geant4} elsewhere. The difference between the full simulation is found to be marginal after examining a number of referece signal points.
+The subquent procedures are identical to what is processed for the data sample: particle reconstruction and identifications, as described in Sec. \\
+
+For the signal models with no $\checkmark$ in Tab. \ref{tab::Introduction::modelsBV}-\ref{tab::Introduction::models3B}, no detector simulation nor reconstruction is performed. Instead the effect is emulated by smearing the energy of truth-level particles and clustered jets, based on the resolution parametrized using the full simulated samples. The object identification is emulated by randomly accepting the candidates at the rate of the parametrized efficiency. The modeling is extensively tested by comparing the kinematic distributions with the fast simulated samples. The discrepancy is found sufficiently small, staying within 5$\%$ in general and never exceed $10\%$. \\
+
+% benchmark models
+% non-benchmark models -> no dector simulation, use emulation
+
+
+\subsection{Design of SUSY Signal Grid for Interporetation} 
+Obtained exlusion limits are presented in form of contours in a 2-dimensional plane, usually in terms of SUSY masses. This is done by genearting a set of signal samples with various SUSY masses covering the whole plane with discrete steps, referred as a signal grid, and the results of the hypothetical test for the points are interpolated, providing continuous limit in the end. \\
+
+For limits on the direct decay models, $\mG$ and $\mLSP$ are chosen as x and y-axis respectively to represent (referred as ``\dire'' grid). The cases with 1-step decay models is a bit tricky, since they involve the third mass; the intermediate EW-gaugino $\chaone$ or $\neutwo$. The full 3-dimensional presentation is not realistic from computational cost of view, due to the enormously increased number of grid points to cover the whole grid. Therefore, a couple of sensible 2D-slices are made that sufficiently capture the essense of the 3D-grid. ``\xhalf'' is the grid with the intermediate EW-gaugino mass is set to midmost between gluino and the LSP, while $x$ is defined as a parameter representing the relative mass splitting:
+\begin{align}
+  x := \dmcn/\dmg, \,\,\,\,\,\,\, x \in [0,1]. \nn
+\end{align}
+The \varx grid is then designed to complement the hole in high or low $x$, where the LSP mass is fixed to $60\gev$ and the gluino mass and the intermediate EW-gaugino mass are set free. There are two additional grids \DMtw and \DMth in which the intermediate EW-gaugino an the LSP are compressed ($\dmcn=20, \, 30\gev$ respectively), respecting the dark matter relic constraint in discussed in Sec. \ref{}. Note that these DM grids are not considered in models with $\neutwo$ decaying to higgs, since higgs is too far off-shell thus $\neutwo$ never almost decays via higgs in the situation. \\
+To summarize, four types of signal grid are designed in the analysis, as shown in Tab. \ref{tab::Samples::signalGridDef}. 
+
+
+\tabsmall{ c | c c c c}
+{
+\hline
+Grid name   & x-axis   & y-axis         & Slicing                & Note\\
+\hline
+\hline
+\dire       & $\mG$   & $\mLSP$         &  -                     & - \\
+\hline
+\hline
+\xhalf      &  $\mG$  & $\mLSP$         &  $\dmg = \dmcn$        & - \\
+\varx       &  $\mG$  & $\dmcn / \dmg$  &  $\mLSP=60\gev$        & - \\
+\DMtw,\DMth &  $\mG$  & $\mLSP$         &  $\dmcn=20,30\gev$     & For models without $h$-mediated $\tilde{\chi}_2^0$ decays. \\
+\hline
+}
+{List of signal grids used for limit setting. \dire is for the direct decay model, and the others are for the 1-step decay models. For the latter, }
+{tab::Samples::signalGridDef}
+
+
+

@@ -1,0 +1,166 @@
+\section{Analysis Strategy and Signal Region Definition.} 
+
+\subsection{Trigger}
+% needed description
+% off-line MET -> cluster based
+% on/off-line definition
+Taking the advantage that most of the signal models we consider yield large missing ET (MET) from LSP, we use MET trigger throughout the analysis.
+Since MET is calculated from global information of an event rather than the feature of a single particular particle, the plateau efficiency amounts almost 100 $\%$. 
+This is a significant advantage over the leptonic trigger where efficiency is typically $70\% \sim 90\%$.
+Meanwhile, the downside of MET trigger is its slow turn-on due to the deteriorated resolution of on-line MET with respect to the off-line one, as well as the presence of muons which is only taken into account in on-line MET calculation.
+$200 \gev$ in off-line MET is required to assure the plateau efficiency, despite much lower threshold for on-line MET (50GeV for L1 and 110GeV for HLT).
+The turn-on also has dependency on event topology and kinematics, due to varying MET resolution. 
+This is examined by looking at turn-ons with different jet multiplicity and $\mindPhiFourJet$ as shown Fig. \ref{}.
+All in all, the efficiency safely reaches the plateau after $250 \gev$ in off-line MET. 
+Therefore here we promise to always require $\met > 250 \gev$ in case of trigger requirement.
+The signal acceptance by the trigger requirement is almost 100$\%$ except when gluino mass and LSP mass are compressed, however since high MET cut will be anyway necessary for background rejection in that scenario, we do not consider this as an issue.
+
+
+
+\subsection{Signal Region Definition}
+
+
+\subsubsection{Binning Strategy}
+In order to extensively address to all the 45 decay models with all possible mass spectra, taylored multi-bin signal regions are developed.
+These are firstly divided into three types: b-tagged / b-vetoed / 3b
+The background component significantly varies as shown in Tab. \ref{}.
+3b is by far the cleanest channel in terms of background level, whereas b-tagged and b-veto bins have comparable S/N.
+Therefore for simplicity we adopt the same kinematic cuts to b-tagged and b-veto bins, while separate optimization procedure is performed to the 3b bins. \\
+
+%% shape fit
+
+As for BV/BT bins, we further split into 4 set of signal regions to address to following 4 types of mass configurations on gluino, intermediate EW gaugino and LSP :
+2J) x12
+6J)
+Low-x)
+High-x)
+
+We do not apply splitting for the "3b'' signal regions since targeted signal models there usually involve top quarks that also contributes to lepton pt and MET, therefore the correspondence does not hold anymore and this categorization does not make that much sense.
+
+Finally, to accommodate different needs on the tightness of cuts for different mass splittings over the mass grid, signal regions are binned in terms of $\meffInc$. 
+%%% dM is the gauge of hardness of decay particles 
+Therefore, the signal region end up in 5 tower-structured bins as schematized in Fig. \ref{}, where $3 \times 2$ bins in $\meffInc \times \mathrm{(BV/BT)}$ reside in tower \textbf{"2J''} and \textbf{"6J''}, $1 \times 2$ bins in \textbf{"Low-x''} and \textbf{"High-x''}, and 2 $\meffInc$ bins in \textbf{"3B''}. Towers "2J/6J/3B" or "Low-x/High-x/3B" are statistically independent. In other words, they can be easily combined by a simultaneous fit. 
+%%% In providing the result, we perform the fit for both two combined towers, and quote one giving the best sensitivity
+
+		
+		
+\subsubsection{Optimization}
+Aside from (b-)jet multiplicity and $\meffInc$, all the other cuts needs to be tuned in order to attain the best signal-background separation. The optimization is done tower-by-tower using the variables defined as below:
+% ------ Definition of Variables
+
+% ------- optimization procedure
+
+Note that cuts should not be too fine tuned to specific mass points or decay modes. While the cut values are determined based on systematic scans by machinary, they are verified by eye using so-called "N-1 plots" as in Fig.\ref{} - \ref{}  %definition??%
+
+
+			%%%%%%%%  2J  %%%%%%%%%%%%
+			\renewcommand{\arraystretch}{1.8}
+			\tab{ c | c c c c c c}{
+			                             \hline
+                                             &                    SR &                 WR/TR &             VR $\met$ &               VR apl. &                VR QCD &                 VR DB \\ \hline
+                                 $\nLepbase$ &                     1 &                     1 &                     1 &                     1 &                     1 &                     2 \\
+                               $\nLepsignal$ &                     1 &                     1 &                     1 &                     1 &                     0 &                     2 \\
+                                    $\lepPt$ & \multicolumn{5} {c}{                                                                                      $[6,35]$ } &                     - \\
+                                     $\nJet$ & \multicolumn{5} {c}{                                                                                       $\geq2$ } &               $\geq1$ \\
+                                    $\nBJet$ &               0/[1,2] &               0/[1,2] &                     - &                     - &                     - &                     0 \\
+                                      $\met$ &                $>430$ &           $[250,430]$ &           $[250,430]$ &                $>430$ &                $>430$ &                $>250$ \\
+                                       $\mt$ &                $>100$ &            $[30,100]$ &                $>100$ &            $[30,100]$ &                $>100$ &                     - \\
+                                  $\meffInc$ & \multicolumn{6} {c}{                                                                                                    $[1100/1500/1900)$ } \\
+                              $\metOverMeff$ &               $>0.25$ &               $>0.15$ &                $>0.1$ &                $>0.2$ &               $>0.25$ &                     - \\
+                            $\nJetOverLepPt$ & \multicolumn{2} {c}{                $>0.2$ } &               $>0.15$ & \multicolumn{2} {c}{                $>0.2$ } &                     - \\
+			  \hline }
+			{Definition of signal/control/validation regions (SR/CR/VR) for tower \textbf{"2J"}}
+			{SRdefinition::regionDef2J}
+			\renewcommand{\arraystretch}{1.}
+
+
+
+			%%%%%%%%  6J  %%%%%%%%%%%%
+			\renewcommand{\arraystretch}{1.8}
+			\tab{ c | c c c c c c}{
+			                             \hline
+                                             &                    SR &                 WR/TR &              VR $\mt$ &               VR apl. &                VR QCD &                 VR DB \\ \hline
+                                 $\nLepbase$ &                     1 &                     1 &                     1 &                     1 &                     1 &                     2 \\
+                               $\nLepsignal$ &                     1 &                     1 &                     1 &                     1 &                     0 &                     2 \\
+                                    $\lepPt$ & \multicolumn{6} {c}{                                                                                                                 $>35$ } \\
+                                     $\nJet$ & \multicolumn{5} {c}{                                                                                       $\geq6$ } &               $\geq5$ \\
+                                    $\nBJet$ &               0/[1,2] &               0/[1,2] &                     - &                     - &                     - &                     0 \\
+                                      $\met$ &                $>350$ &                $>300$ &                $>250$ &                $>350$ &                $>350$ &                $>250$ \\
+                                       $\mt$ &                $>175$ &            $[40,125]$ &           $[125,400]$ &            $[40,125]$ &                $>125$ &                     - \\
+                                  $\meffInc$ & \multicolumn{6} {c}{                                                                                                    $[1100/1600/2100)$ } \\
+                            $\LepAplanarity$ &               $>0.06$ &               $<0.06$ &               $<0.04$ &               $>0.06$ &               $>0.06$ &               $<0.06$ \\
+			  \hline }
+			{Definition of signal/control/validation regions (SR/CR/VR) for tower \textbf{"6J"}}
+			{SRdefinition::regionDef6J}
+			\renewcommand{\arraystretch}{1.}
+
+
+
+			%%%%%%%%  Lowx  %%%%%%%%%%%%
+			\renewcommand{\arraystretch}{1.8}
+			\tab{ c | c c c c c c}{
+			                             \hline
+                                             &                    SR &                 WR/TR &              VR $\mt$ &               VR apl. &                VR QCD &                 VR DB \\ \hline
+                                 $\nLepbase$ &                     1 &                     1 &                     1 &                     1 &                     1 &                     2 \\
+                               $\nLepsignal$ &                     1 &                     1 &                     1 &                     1 &                     0 &                     2 \\
+                                    $\lepPt$ & \multicolumn{5} {c}{                                                                                      $[6,35]$ } &                     - \\
+                                     $\nJet$ & \multicolumn{5} {c}{                                                                                       $\geq5$ } &               $\geq4$ \\
+                                    $\nBJet$ &               0/[1,2] &               0/[1,2] &                     - &                     - &                     - &                     0 \\
+                                      $\met$ &                $>350$ &                $>300$ &                $>300$ &                $>350$ &                $>350$ &                $>250$ \\
+                                       $\mt$ &                $>100$ &            $[30,100]$ &           $[100,450]$ &            $[30,100]$ &                $>100$ &                     - \\
+                                  $\meffInc$ & \multicolumn{6} {c}{                                                                                                               $>1900$ } \\
+                            $\LepAplanarity$ &               $>0.02$ &               $<0.02$ &               $<0.02$ &               $>0.02$ &               $>0.02$ &               $<0.04$ \\
+			  \hline }
+			{Definition of signal/control/validation regions (SR/CR/VR) for tower \textbf{"Lowx"}}
+			{SRdefinition::regionDefLowx}
+			\renewcommand{\arraystretch}{1.}
+
+
+
+			%%%%%%%%  Highx  %%%%%%%%%%%%
+			\renewcommand{\arraystretch}{1.8}
+			\tab{ c | c c c c c c}{
+			                             \hline
+                                             &                    SR &                 WR/TR &              VR $\mt$ &               VR apl. &                VR QCD &                 VR DB \\ \hline
+                                 $\nLepbase$ &                     1 &                     1 &                     1 &                     1 &                     1 &                     2 \\
+                               $\nLepsignal$ &                     1 &                     1 &                     1 &                     1 &                     0 &                     2 \\
+                                    $\lepPt$ & \multicolumn{6} {c}{                                                                                                                 $>35$ } \\
+                                     $\nJet$ & \multicolumn{5} {c}{                                                                                       $\geq4$ } &               $\geq3$ \\
+                                    $\nBJet$ &               0/[1,2] &               0/[1,2] &                     - &                     - &                     - &                     0 \\
+                                      $\met$ &                $>300$ &                $>300$ &                $>300$ &                $>300$ &                $>300$ &                $>250$ \\
+                                       $\mt$ &                $>450$ &            $[30,125]$ &           $[125,600]$ &            $[30,125]$ &                $>450$ &                     - \\
+                                  $\meffInc$ & \multicolumn{6} {c}{                                                                                                               $>2000$ } \\
+                              $\metOverMeff$ &               $>0.25$ &                $>0.2$ &               $>0.15$ &               $>0.25$ &               $>0.25$ &                $>0.2$ \\
+                            $\LepAplanarity$ &               $>0.01$ &               $<0.01$ &                     - &               $>0.01$ &               $>0.01$ &               $<0.02$ \\
+			  \hline }
+			{Definition of signal/control/validation regions (SR/CR/VR) for tower \textbf{"Highx"}}
+			{SRdefinition::regionDefHighx}
+			\renewcommand{\arraystretch}{1.}
+
+
+
+			%%%%%%%%  3B  %%%%%%%%%%%%
+			\renewcommand{\arraystretch}{1.8}
+			\tab{ c | c c c c c}{
+			                             \hline
+                                             &                    SR &                    TR &              VR $\mt$ &               VR apl. &                VR QCD \\ \hline
+                                 $\nLepbase$ &                     1 &                     1 &                     1 &                     1 &                     1 \\
+                               $\nLepsignal$ &                     1 &                     1 &                     1 &                     1 &                     0 \\
+                                    $\lepPt$ & \multicolumn{5} {c}{                                                                                         $>15$ } \\
+                                     $\nJet$ & \multicolumn{5} {c}{                                                                                       $\geq7$ } \\
+                                    $\nBJet$ & \multicolumn{5} {c}{                                                                                                            $\geq3$ } \\ 
+                                      $\met$ &                $>300$ &                $>250$ &                $>250$ &                $>250$ &                $>300$ \\
+                                       $\mtFull$ &                $>175$ &            $[30,125]$ &           $[125,450]$ &            $[30,125]$ &                $>175$ \\
+                                  $\meffInc$ & \multicolumn{5} {c}{                                                                                 $[1000/1750)$ } \\
+                            $\LepAplanarity$ &               $>0.01$ &                     - &                     - &               $>0.01$ &               $>0.01$ \\
+                           $\mindPhiFourJet$ &               $>0.45$ &                     - &                     - &                $>0.3$ &               $>0.45$ \\
+                                  $\topNess$ &                  $>6$ &                     - &                     - &                  $>6$ &                  $>6$ \\
+			  \hline }
+			{Definition of signal/control/validation regions (SR/CR/VR) for tower \textbf{"3B"}}
+			{SRdefinition::regionDef3B}
+			\renewcommand{\arraystretch}{1.}
+
+
+			
+			
+	\subsection{MC/Data Comparison}

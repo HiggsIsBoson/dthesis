@@ -1,0 +1,299 @@
+
+\newcommand{\bgonlycaption}[1]{%
+      Event yields and the background-only fit results in the #1 control regions. 
+      Each column corresponds to a bin in $\meffInc$.
+      Uncertainties in the MC estimates combine statistical (in the simulated event yields) and systematic uncertainties discussed in Sec \ref{sec::Uncertainties::kineExtp}. The uncertainties in this table are symmetrised for propagation purposes but truncated at zero to remain within the physical boundaries.
+}
+\newcommand{\bgonlycaptionvarx}{%
+      Event yields and the background-only fit results in the ``Low-x'' and ``High-x'' control regions. 
+      Uncertainties in the MC estimates combine statistical (in the simulated event yields) and systematic uncertainties discussed in Sec \ref{sec::Uncertainties::kineExtp}. The uncertainties in this table are symmetrised for propagation purposes but truncated at zero to remain within the physical boundaries.
+}
+
+\begin{table}
+  \begin{center}
+    \caption{ \label{tab::BGestimation::CRyields_2J} \bgonlycaption{``2J''}  }
+
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr}
+      \toprule
+      \textbf{WR 2J} & $m_{\mathrm{eff.}}\in$[1100,1500] & $m_{\mathrm{eff.}}\in$[1500,1900] & $m_{\mathrm{eff.}}>1900$ \\
+      \midrule
+      
+      Observed data          & $572$              & $119$              & $15$                    \\
+      \midrule
+      \midrule
+      MC total (post-fit)         & $572.01 \pm 23.95$          & $118.96 \pm 10.92$          & $14.99 \pm 3.89$              \\
+      \midrule
+      $W$+jets         & $425.6 \pm 39.9$          & $90.9 \pm 14.8$          & $11.4 \pm 4.4$              \\
+      $Z$+jets         & $13.8 \pm 5.4$          & $2.5 \pm 1.0$          & $0.5 \pm 0.2$              \\
+      $t\bar{t}$         & $78.2 \pm 19.3$          & $13.0 \pm 4.2$          & $1.5 \pm 0.7$              \\
+      Single-top         & $13.7 \pm 3.3$          & $2.1 \pm 0.7$          & $0.5 \pm 0.3$              \\
+      Di-boson         & $39.5 \pm 19.6$          & $10.2 \pm 8.0$          & $1.1_{-1.1}^{+1.3}$              \\
+      $t\bar{t}+V$         & $1.2 \pm 0.3$          & $0.3 \pm 0.1$          & $0.1 \pm 0.0$              \\
+      \midrule
+      \midrule
+      MC total (pre-fit)              & $847.48 \pm 39.29$          & $177.50 \pm 11.61$          & $32.61 \pm 2.41$              \\
+      \midrule
+      $W$+jets         & $697.75 \pm 21.76$          & $142.96 \pm 5.12$          & $26.44 \pm 1.37$              \\
+      $Z$+jets         & $13.80 \pm 5.45$          & $2.52 \pm 0.97$          & $0.45 \pm 0.19$              \\
+      $t\bar{t}$         & $81.29 \pm 16.66$          & $18.72 \pm 4.54$          & $3.39 \pm 0.83$              \\
+      Single-top         & $14.26 \pm 2.80$          & $2.96 \pm 0.84$          & $1.14 \pm 0.43$              \\
+      Di-boson         & $39.19 \pm 19.54$          & $10.01 \pm 8.00$          & $1.12_{-1.12}^{+1.29}$              \\
+      $t\bar{t}+V$         & $1.20 \pm 0.25$          & $0.32 \pm 0.08$          & $0.06 \pm 0.02$              \\
+      
+      
+      \bottomrule
+      %%
+    \end{tabular*}
+    
+    
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr}
+      \toprule
+      \textbf{TR 2J} & $m_{\mathrm{eff.}}\in$[1100,1500] & $m_{\mathrm{eff.}}\in$[1500,1900] & $m_{\mathrm{eff.}}>1900$ \\
+      \midrule
+      Observed data          & $899$              & $149$              & $17$                    \\
+      \midrule
+      \midrule
+      MC total (post-fit)         & $898.99 \pm 30.02$          & $148.97 \pm 12.24$          & $16.99 \pm 4.15$              \\
+      \midrule
+      $W$+jets         & $91.2 \pm 33.7$          & $20.4 \pm 8.0$          & $2.9 \pm 1.5$              \\
+      $Z$+jets         & $3.8 \pm 1.5$          & $0.8 \pm 0.3$          & $0.2 \pm 0.1$              \\
+      $t\bar{t}$         & $712.0 \pm 43.0$          & $111.5 \pm 14.6$          & $11.9 \pm 4.2$              \\
+      Single-top         & $70.9 \pm 4.3$          & $9.6 \pm 1.3$          & $1.2 \pm 0.4$              \\
+      Di-boson         & $10.1 \pm 8.0$          & $3.5_{-3.5}^{+4.3}$          & $0.4_{-0.4}^{+0.6}$              \\
+      $t\bar{t}+V$         & $10.8 \pm 0.9$          & $3.2 \pm 0.3$          & $0.4 \pm 0.1$              \\
+      \midrule
+      \midrule
+      MC total (pre-fit)              & $987.25 \pm 56.33$          & $213.29 \pm 14.07$          & $37.63 \pm 3.18$              \\
+      \midrule
+      $W$+jets         & $148.83 \pm 48.96$          & $31.86 \pm 10.48$          & $6.63 \pm 2.20$              \\
+      $Z$+jets         & $3.83 \pm 1.49$          & $0.84 \pm 0.32$          & $0.17 \pm 0.07$              \\
+      $t\bar{t}$         & $739.93 \pm 18.27$          & $160.12 \pm 5.60$          & $27.26 \pm 1.47$              \\
+      Single-top         & $73.73 \pm 2.90$          & $13.72 \pm 0.89$          & $2.69 \pm 0.44$              \\
+      Di-boson         & $10.11 \pm 7.93$          & $3.52_{-3.52}^{+4.30}$          & $0.43_{-0.43}^{+0.65}$              \\
+      $t\bar{t}+V$         & $10.82 \pm 0.87$          & $3.24 \pm 0.35$          & $0.44 \pm 0.08$              \\
+      
+
+      \bottomrule
+      %%
+    \end{tabular*}
+
+  \end{center}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}
+  \begin{center}
+    \caption{ \label{tab::BGestimation::CRyields_6J} \bgonlycaption{``6J''}  }
+
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr}
+      \toprule
+      \textbf{WR 6J} &  $m_{\mathrm{eff.}}\in$[1100,1600] & $m_{\mathrm{eff.}}\in$[1600,2100] & $m_{\mathrm{eff.}}>2100$ \\
+      \midrule
+      
+      Observed data          & $235$              & $108$              & $51$                    \\
+      \midrule
+      \midrule
+      MC total (post-fit)         & $235.02 \pm 15.38$          & $108.00 \pm 10.43$          & $50.97 \pm 7.18$              \\
+      \midrule
+      $W$+jets         & $142.4 \pm 29.8$          & $70.0 \pm 16.6$          & $31.8 \pm 10.8$              \\
+      $Z$+jets         & $2.5 \pm 1.0$          & $1.2 \pm 0.5$          & $1.0 \pm 0.4$              \\
+      $t\bar{t}$         & $54.5 \pm 11.4$          & $18.3 \pm 4.5$          & $8.0 \pm 2.3$              \\
+      Single-top         & $7.8 \pm 1.5$          & $3.8 \pm 1.0$          & $2.9 \pm 0.8$              \\
+      Di-boson         & $26.8 \pm 20.9$          & $14.2 \pm 10.9$          & $6.9 \pm 6.9$              \\
+      $t\bar{t}+V$         & $1.1 \pm 0.2$          & $0.5 \pm 0.1$          & $0.3 \pm 0.1$              \\
+      \midrule
+      \midrule
+      MC total (pre-fit)              & $403.91 \pm 28.54$          & $194.69 \pm 14.67$          & $109.84 \pm 9.51$              \\
+      \midrule
+      $W$+jets         & $307.77 \pm 12.18$          & $145.63 \pm 5.62$          & $83.41 \pm 3.90$              \\
+      $Z$+jets         & $2.46 \pm 1.01$          & $1.19 \pm 0.49$          & $1.02 \pm 0.41$              \\
+      $t\bar{t}$         & $57.64 \pm 9.81$          & $27.39 \pm 5.27$          & $13.28 \pm 2.80$              \\
+      Single-top         & $8.21 \pm 1.33$          & $5.68 \pm 1.15$          & $4.88 \pm 1.03$              \\
+      Di-boson         & $26.78 \pm 20.86$          & $14.24 \pm 10.91$          & $6.94 \pm 6.92$              \\
+      $t\bar{t}+V$         & $1.06 \pm 0.22$          & $0.54 \pm 0.14$          & $0.32 \pm 0.08$              \\
+      
+      
+      \bottomrule
+      %%
+    \end{tabular*}
+    
+            
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr}
+      \toprule
+      \textbf{TR 6J} &  $m_{\mathrm{eff.}}\in$[1100,1600] & $m_{\mathrm{eff.}}\in$[1600,2100] & $m_{\mathrm{eff.}}>2100$ \\
+      \midrule
+      Observed data          & $591$              & $219$              & $110$                    \\
+      \midrule
+      \midrule
+      MC total (post-fit)         & $590.97 \pm 24.35$          & $218.99 \pm 14.83$          & $110.03 \pm 10.52$              \\
+      \midrule
+      $W$+jets         & $40.9 \pm 17.2$          & $20.5 \pm 8.7$          & $11.1 \pm 5.6$              \\
+      $Z$+jets         & $0.9 \pm 0.3$          & $0.6 \pm 0.2$          & $0.5 \pm 0.2$              \\
+      $t\bar{t}$         & $479.6 \pm 28.8$          & $166.2 \pm 16.2$          & $80.6 \pm 10.9$              \\
+      Single-top         & $50.9 \pm 3.1$          & $21.6 \pm 2.1$          & $12.9 \pm 1.8$              \\
+      Di-boson         & $9.8 \pm 8.7$          & $5.1 \pm 3.9$          & $2.3_{-2.3}^{+2.5}$              \\
+      $t\bar{t}+V$         & $8.9 \pm 1.1$          & $5.0 \pm 0.7$          & $2.6 \pm 0.3$              \\
+      \midrule
+      \midrule
+      MC total (pre-fit)              & $668.66 \pm 33.46$          & $334.79 \pm 17.00$          & $190.07 \pm 11.57$              \\
+      \midrule
+      $W$+jets         & $88.29 \pm 28.65$          & $42.75 \pm 13.65$          & $29.22 \pm 9.34$              \\
+      $Z$+jets         & $0.87 \pm 0.35$          & $0.59 \pm 0.24$          & $0.48 \pm 0.19$              \\
+      $t\bar{t}$         & $506.97 \pm 11.32$          & $249.01 \pm 6.54$          & $134.01 \pm 4.15$              \\
+      Single-top         & $53.84 \pm 1.46$          & $32.38 \pm 1.25$          & $21.43 \pm 1.14$              \\
+      Di-boson         & $9.81 \pm 8.65$          & $5.10 \pm 3.88$          & $2.33_{-2.33}^{+2.48}$              \\
+      $t\bar{t}+V$         & $8.89 \pm 1.13$          & $4.96 \pm 0.69$          & $2.59 \pm 0.31$              \\
+      
+      
+      \bottomrule
+      %%
+    \end{tabular*}
+    
+    
+  \end{center}
+\end{table}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}
+  \begin{center}
+    \caption{ \label{tab::BGestimation::CRyields_varx} \bgonlycaptionvarx }
+    
+
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrr}
+      \toprule
+      \textbf{CR Low-x} & WR & TR \\
+      \midrule
+      
+      Observed data & $14$ & $25$ \\
+      \midrule
+      \midrule
+      MC total (post-fit) & $14.06 \pm 3.77$ & $25.04 \pm 5.03$ \\
+      \midrule
+      $W$+jets & $7.9 \pm 4.3$ & $2.2 \pm 1.4$ \\
+      $Z$+jets & $0.4 \pm 0.2$ & $0.2 \pm 0.1$ \\
+      $t\bar{t}$ & $2.4 \pm 1.0$ & $19.6 \pm 5.4$ \\
+      Single-top & $0.4 \pm 0.2$ & $1.2 \pm 0.3$ \\
+      Di-boson & $2.8 \pm 1.1$ & $1.3_{-1.3}^{+1.6}$ \\
+      $t\bar{t}+V$ & $0.1 \pm 0.0$ & $0.5 \pm 0.1$ \\
+      \midrule
+      \midrule
+      MC total (pre-fit) & $37.44 \pm 2.81$ & $43.71 \pm 3.94$ \\
+      \midrule
+      $W$+jets & $29.54 \pm 1.77$ & $8.18 \pm 2.65$ \\
+      $Z$+jets & $0.39 \pm 0.17$ & $0.17 \pm 0.08$ \\
+      $t\bar{t}$ & $3.93 \pm 1.01$ & $31.59 \pm 1.70$ \\
+      Single-top & $0.69 \pm 0.20$ & $1.98 \pm 0.21$ \\
+      Di-boson & $2.84 \pm 1.06$ & $1.31_{-1.31}^{+1.60}$ \\
+      $t\bar{t}+V$ & $0.05 \pm 0.02$ & $0.48 \pm 0.07$ \\            
+      \bottomrule
+      %%
+    \end{tabular*}
+            
+    
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrr}
+      \toprule
+      \textbf{CR High-x} & WR & TR \\
+      \midrule
+      
+      Observed data & $91$ & $80$ \\
+      \midrule
+      \midrule
+      MC total (post-fit) & $91.14 \pm 9.56$ & $79.96 \pm 9.03$ \\
+      \midrule
+      $W$+jets & $69.3 \pm 11.4$ & $14.7 \pm 5.7$ \\
+      $Z$+jets & $1.2 \pm 0.5$ & $0.4 \pm 0.2$ \\
+      $t\bar{t}$ & $7.9 \pm 2.5$ & $52.5 \pm 9.8$ \\
+      Single-top & $4.1 \pm 1.1$ & $9.7 \pm 1.8$ \\
+      Di-boson & $8.4 \pm 3.8$ & $1.6_{-1.6}^{+3.0}$ \\
+      $t\bar{t}+V$ & $0.2 \pm 0.0$ & $1.1 \pm 0.1$ \\
+      \midrule
+      \midrule
+      MC total (pre-fit) & $136.84 \pm 7.30$ & $116.36 \pm 9.36$ \\
+      \midrule
+      $W$+jets & $109.51 \pm 4.01$ & $23.16 \pm 7.45$ \\
+      $Z$+jets & $1.17 \pm 0.47$ & $0.36 \pm 0.15$ \\
+      $t\bar{t}$ & $11.51 \pm 2.27$ & $76.13 \pm 3.07$ \\
+      Single-top & $6.03 \pm 0.80$ & $14.01 \pm 0.87$ \\
+      Di-boson & $8.47 \pm 3.79$ & $1.60_{-1.60}^{+2.94}$ \\
+      $t\bar{t}+V$ & $0.15 \pm 0.04$ & $1.10 \pm 0.14$ \\            
+      \bottomrule
+      %%
+    \end{tabular*}
+    
+  \end{center}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}
+  \begin{center}
+    \caption{ \label{tab::BGestimation::CRyields_3B} \bgonlycaption{``3B''}  }
+
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrr}
+      \toprule
+      \textbf{WR 3B} & $m_{\mathrm{eff.}}\in$[1000,1750] & $m_{\mathrm{eff.}}>1750$ \\
+      \midrule
+      Observed data          & $336$              & $102$                    \\
+      \midrule
+      \midrule
+      MC total (post-fit)         & $336.08 \pm 20.03$          & $102.02 \pm 10.79$              \\
+      \midrule
+      $W$+jets         & $118.8 \pm 80.7$          & $51.2 \pm 19.8$              \\
+      $Z$+jets         & $5.2 \pm 1.5$          & $2.4 \pm 0.4$              \\
+      $t\bar{t}$         & $150.5 \pm 67.4$          & $24.3 \pm 12.9$              \\
+      Single-top         & $14.7 \pm 6.6$          & $5.6 \pm 2.7$              \\
+      Di-boson         & $44.6 \pm 11.3$          & $17.8 \pm 3.6$              \\
+      $t\bar{t}+V$         & $2.3 \pm 0.6$          & $0.8 \pm 0.2$              \\
+      \midrule
+      \midrule
+      MC total (pre-fit)              & $645.12 \pm 29.97$          & $224.27 \pm 11.19$              \\
+      \midrule
+      $W$+jets         & $461.17 \pm 6.38$          & $161.67 \pm 3.06$              \\
+      $Z$+jets         & $5.20 \pm 1.54$          & $2.43 \pm 0.42$              \\
+      $t\bar{t}$         & $120.13 \pm 20.47$          & $33.81 \pm 7.61$              \\
+      Single-top         & $11.72 \pm 2.17$          & $7.80 \pm 1.32$              \\
+      Di-boson         & $44.60 \pm 11.36$          & $17.77 \pm 3.60$              \\
+      $t\bar{t}+V$         & $2.29 \pm 0.60$          & $0.79 \pm 0.22$              \\
+      
+      
+      \bottomrule
+      %%
+    \end{tabular*}
+    
+    
+
+    
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrr}
+      \toprule
+      \textbf{TR 3B} & $m_{\mathrm{eff.}}\in$[1000,1750] & $m_{\mathrm{eff.}}>1750$ \\
+      \midrule
+      Observed data          & $218$              & $45$                    \\
+      \midrule
+      \midrule
+      MC total (post-fit)         & $217.92 \pm 17.08$          & $44.99 \pm 7.35$              \\
+      \midrule
+      $W$+jets         & $1.0 \pm 0.9$          & $0.7 \pm 0.5$              \\
+      $Z$+jets         & $0.1 \pm 0.0$          & $0.1 \pm 0.0$              \\
+      $t\bar{t}$         & $195.7 \pm 15.5$          & $38.1 \pm 6.8$              \\
+      Single-top         & $15.5 \pm 5.0$          & $3.8 \pm 1.4$              \\
+      Di-boson         & $1.0 \pm 0.2$          & $0.6 \pm 0.1$              \\
+      $t\bar{t}+V$         & $4.6 \pm 0.9$          & $1.6 \pm 0.3$              \\
+      \midrule
+      \midrule
+      MC total (pre-fit)              & $177.55 \pm 52.42$          & $62.83 \pm 18.63$              \\
+      \midrule
+      $W$+jets         & $3.97 \pm 1.59$          & $2.34 \pm 0.87$              \\
+      $Z$+jets         & $0.11 \pm 0.04$          & $0.07 \pm 0.02$              \\
+      $t\bar{t}$         & $155.56 \pm 51.06$          & $52.91 \pm 17.72$              \\
+      Single-top         & $12.32 \pm 2.19$          & $5.32 \pm 1.33$              \\
+      Di-boson         & $0.98 \pm 0.17$          & $0.61 \pm 0.10$              \\
+      $t\bar{t}+V$         & $4.61 \pm 0.91$          & $1.58 \pm 0.31$              \\
+      
+      
+      \bottomrule
+      %%
+    \end{tabular*}
+    
+      
+  \end{center}
+\end{table}

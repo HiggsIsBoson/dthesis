@@ -1,0 +1,281 @@
+\clearpage
+\section{Systematic Uncertainties}  \label{sec::Uncertainties}
+Uncertainties associated with background estimations and the signal modeling is dedicatedly discussed in this section.
+They are largely three-fold: instrumental uncertainties, theoretical uncertainties and the the generic uncertainties for the background estimation methods. \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Instrumental %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Instrumental Uncertainty}
+Instrumental uncertainties are the systematic uncertainty regarding to the experiment, including the imperfection of calibration and mis-modeling of detector response and so on.
+%The explicit list of implemented uncertainties are summarized in the Appendix Sec. \ref{sec::Uncertainties::fullListSyst}.  \\
+  
+\subsubsection{Jets} 
+Despite the dedicated calibration procedures as described in Sec. \ref{sec::objDef::jets}, the residual uncertainty on the jet energy scale (JES) is often the largest source of instrumental uncertainty. While 87 independent uncertainties are modeled from each step in the sequential calibration,
+those showing the similar behavior are then combined. In the analysis, 8 combined nuisance parameters are input in the fit.
+The sub-leading jet uncertainty is on the jet energy resolution (JER). While JER is measured using different multiple physics processes, the uncertainty is quoted by the diffrence in the outcomes.
+Systematics dealing with the flavor tagging are also important since the analysis deeply relies on the classification in b-tagged jet multiplicity. 
+\\
+There are a couple of additional uncertainties dealing with the jet eta-scale and the modeling of the JVT (Jet Vertex Tagger, Sec. \ref{sec::objDef::jets}) profile etc. that are also taken into account, though the impacts on the final result are usually negligible. \\
+
+%%%%%%%% resol
+%The resolution of the reconstructed jet is measured by the dijet balance technique. The dijet balance technique measures the asymmetry A between the transverse momenta pj1,pj2 of the dijet
+%system. The asymmetry A is defined by A = (pj1  pj2 )/(pj1 + pj2 ). Its standard deviation A gives TTTT
+
+%%%%%%% btag
+%To evaluate systematic uncertainties, several validations are performed by di↵erent training configuration and alternative background samples with observed data(tt ̄ ! eμ + bb sample). It is assigned of roughly 5 ⇠ 10% for inclusive |⌘| region over pbT = 20 GeV ⇠ 300 GeV [151].
+
+
+\subsubsection{Electrons}
+Electrons involve three efficiency uncertainties on reconstruction, identification and isolation, as well as the uncertainties on the energy scale and resolution modeling.
+The efficiencies are measured by exploiting the $Z\ra\ell\ell$ process with the tag-probe technique as described in Sec. \ref{sec::objDef::electrons}, and the uncertainties are derived from the difference between the expected measured efficiencies by MC and the observed ones.
+The uncertainties on the energy scale and resolution are evaluated based on the descrepnacy between simulated and observed response of the EM calorimeter in Run2.  \\
+
+%resolution uncertainty -> morinaga thesis (5.4.2)
+%determined by test beam etc.
+%extrapolate
+
+
+\subsubsection{Muons}
+Four efficiency uncertainties and two separated scale uncertainties are associated to muons.
+All the uncertainties are derived from the difference between the expectation and observed measurement outcome using $Z\ra\mu\mu$ process by the tag-probe technique similarly to the case of electrons. 
+The efficiency uncertainties involve the reconstruction, identification, isolation and TTVA (Tracks-To-Vetex-Association), while the two scale uncertainties corresponds to the statistical and systematic uncertainty in the measurement. \\
+
+
+\subsubsection{MET} 
+On top of the propagated uncertainties on the scales and resolutions of the reconstructed objects, MET suffers from additional uncertainty regarding to the modeling of the soft term defined in Sec. \ref{sec::objDef::met}.
+This is measured using the $Z (\ra\ell\ell)+\mathrm{jets}$ events, by comparing the expected momentum profile of soft terms and the observed ones.  \\
+
+
+\subsubsection{Implementation and the Impact} 
+Instrumental uncertainties are implemented by generating the corresponding MC variations in which the scale, resolution or the efficiency for objects are tuned event-by-event.
+The expected yields in the CRs and SRs (VRs) by the variated samples are then input into the fit, and the difference with respect to those of nominal sample is taken as the $1\sigma$ deviation by the systematics. \\
+
+%The impact by the scale variation on the background estimation is generally sizable since the tails of kinematics distributions are highly sensitive to it.
+%However, due to the nomalization applied for the main background
+The impact on kinematical extrapolation is relatively sizable, amounting upto $5\% \sim 15\%$ in signal regions, though the nomalization applied for the main background in CRs helps a lot.
+On the other hand, instrumental uncertainties have tiny impact on the estimation by the object replacement method, though they do affect the modeling of lepton efficiencies and the tau response that are fully based on MC.
+The effect is examined by comparing the MC closure between the nominal setup and the cases with systematical variations being applied using the $\ttbar$ MC samples. 
+%The results are shown in Figurere\ref{fig::Uncertainties::objRepSys_kineVar1} $\sim$ \ref{fig::Uncertainties::objRepSys_regionYields} where the closure is shown as a function of kinematical variables as well as the yields in SR-like regions.
+%No significant effect exceeding a few percent is found, therefore flat $5\%$ uncertainty is assigned on the gross estimation by the object replacement method. \\
+
+The impact on signal modeling is generally marginal compared with the cross-section error and the shape uncertainties as described below.
+Therefore, the instrumental uncertainties are not implemented for the non-benchmark models, otherwise the computation cost will skyrocket due to the enormous signal points.
+
+
+\clearpage
+%\input{tex/Uncertainties/fig_objRep_instSys.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Theo unct. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\subsection{Theoretical Uncertainty} 
+There are two types of uncertainties subjecting to theoretical uncertainty: the cross-section uncertainty affecting the global normalization, and the uncertainty on kinematics modeling affecting the acceptance referred as ``shape'' uncertainty.
+Their impacts are evaluated either on signal yields and background expectation in the SRs and VRs, and implemented in the final fit. 
+As for the backgrounds, uncertainties are assigned only for the components estimated by the kinematical extrapolation method, since the object replacement method experiences no theory dependency by construction. \\
+
+The cross-section uncertainties are provided by the associated calculation error in the references that the cross-section is quoted by. The primary source contributing to it is the missing higher-order terms in the calculation, such as terms beyond NNLO for the NLO calculation, or the absence of soft gluon resummation. The other typical sources are from PDF, and measurement precision on standard model parameters, particularly in strong coupling constant and quark masses for higher order QCD correction.  \\
+The shape uncertainties are evaluated using the MC samples with specific systematic variations applied. 
+Different recepes for the variation are prepared for each physics process and the generator, and is carefully designed to minimize the double-counting as possible. \\
+
+For the normalized backgrounds ($\wjets$ and $\ttbar$), the uncertainties on the extrapolation between CRs to SRs/VRs are considered as the only source of theoretical uncertainty, 
+since the other uncertainties (cross-section uncertainty and the shape uncertainties on CR yields) will be cancelled through the normalization in CRs. 
+On the other hand, the full uncertainties are assigned for the other non-normalized backgrounds ($\zjets$, di-bosons and $\ttbar+W/Z/WW$) and the SUSY processes, as they are free from any constraints in the analysis.
+Note that all these theoretical uncertainties are assigned on the post-fit yields without any constraint by the fit.
+%contrary to the instrumental uncertainties discussed above. \\
+
+
+\subsubsection{Normalized Backgrounds} \label{sec:Uncertainties::normalizedBG}
+%mtとかの分布はpreselection levelではnominalがかなり正しいことがわかってるので、まじめにやるならpre-selectionのdataでtheo variationのやつらをconstraintする必要がある
+%ただCR->SRのmodelingはnominalが正しいということは仮定してない. てか正しいかわかんないからttPtとかでmis-modelingをinjectしたときにどれくらい間違えるかを見たりしてた。
+%theo systに対しての応答見た訳ではないのでやっぱfull extentでつける必要あり (とはいえradHi/Loとかは実際恐らくmis-modelingの原因なのでdouble countはするっぽい)
+%meffを緩めた時のtheo systの効果
+%
+The shape uncertainties for the normalized backgrounds ($\wjets$ and $\ttbar$) are given by computing the variation in the ratio of MC yields between in a CR and a SR (or VR), resulting from the systemtatical variations applied.
+The uncertainties are evaluated in respective SR and VR, however, some of the cuts are removed to suppress the statistical fluctuation in MC to a sensible level, which is not trivial given that the evaluated variations are often at the level of $5\%-10\%$.
+The b-jet requirement is then removed, based on the fact that it is generally orthogonal to kinematics.
+Though it is much less trivial, the $\meffInc$ cut can also be removed in addition to it. 
+This is because the kinematical extrapolation method is by concept relying on the weak correlation in the behaviors between the extrapolating variables and the other presumably ill-modeled variables including $\meffInc$, thus the effect of loosened $\meffInc$ cut is supposed to be sub-dominant with respect to the systematic variations in interest.
+%Moreover, even if the impact of loosened $\meffInc$ cut is significant,  
+%Based on the extrapolation error estimated in Sec. \ref{sec::BGestimation::nonClosure_kineExtp}, 
+%Thus, the effect of systematic variations in interest will not be hidden if they are more significant than $10\%$($20\%$) in SRs(VRs), otherwise the extrapolation error 
+%そうはいっても20%くらいズレてるとこもある。
+%確かに考えてるtheoSystがjetとかのmis-modelingと関係するなら、meffを緩めることによってmtの違いの評価に影響はする。でもその場合は前に評価したerrorでカバーできることになるので問題ない
+%考えてるtheoSystがjetとかのmis-modelingと関係しないなら、恐らくmeffを緩めることによる影響はsub-dominantなので大丈夫。というわけでむしろ緩めた方がdoule-couningが防がれてよい。
+%
+Therefore, the evaluated systematics are common to all the bins in the same tower eventually. \\
+
+The menu of theoretical variations for $\wjets$ are as following:
+%Following systematic variations are considered by tuning the internal parameters in Sherpa:
+%For $\wzjets$, Sherpa is used for both event generation and hadronization.
+\begin{itemize}
+\item Choice of renormalization, factorization and resummation scale for soft gluon. \\
+%These scales are chosen to $\mu = m_W$ in the Sherpa default setting.
+The $1\sigma$ up/down variations are generated by independently shifting those scales from the default values $\mu_0$ to either $0.5\mu_0$ or $2\mu_0$ respectively.  
+
+\item Choice of CKKW matching scale.\\
+The decault matching scale for CKKW is $20\gev$, while it is set to $15\gev$ and $30\gev$ respectively for variations. \\
+\end{itemize} 
+
+
+
+%%%%%%%%%%
+The theoretical variations considered for $\ttbar$ are as below:
+\begin{itemize}
+\item Choice of renormalization/factorization scale.\\
+In \powhegbox \mbox{\phantom{k}} generator, these scales are set to common default values of $\mu_0 = \sqrt{m_t^2+p_{\mathrm{T},t}^2}$ where $m_t$ and $p_{\mathrm{T},t}$ are the mass and transverse momentum of top quark.
+The $1\sigma$ up/down variations are generated by simultaneously shifting those scales by factor of 2 or 0.5 respectively.  
+%For the up variation, a parameter referred as ``hdamp'' \cite{ATLAS_ttbarGen_Run1} controling the amount of NLO radiation is additionally shifted from the default value of $m_t$ to $2m_t$ for the internal consistency in \powhegbox. 
+
+\item Parton shower scheme.\\
+The dependency on parton showering scheme is evaluated by comparing the default scheme (\pythiasix) with one used in \herwig.
+The difference is taken as $1\sigma$ variation.
+
+\item Interference between top-like $WWbb$ diagrams, and the inclusive $WWbb$ ones.\\
+The diagrams of $\ttbar+Wt$ and the other $WWbb$ diagrams are allowed to interfere each other since they lead to the common final states.
+This effect is a missed piece in the MC description, however is known to become significant in phase space where the bulk $\ttbar$ component is suppressed, for which signal regions are actually designed for.
+In particular, the topness selection is essentially rejecting the $\ttbar$ with the both top quaks being on-shell, in other words, significantly enhancing the contribution from the off-shell tail of top quarks where the interference effect is adderssing. The impact is evaluated by comparing two truth-level MadGraph samples: one with the only diagrams of $\ttbar+Wt$, and the other with inclusive $WWbb$ diagrams.
+The difference is taken as $1\sigma$ variation.
+\end{itemize}
+%It turns that the spectra are generally quite seneitive to the renormalization scale variation.
+The evaluated uncertainties are listed in Table \ref{tab::Uncertainties::theoSys_Wjets} and \ref{tab::Uncertainties::theoSys_ttbar} for $\wjets$ and $\ttbar$ respectively. Systematics contributing below 5$\%$ or 5 times less than that of the leading uncertainty in the region are ignored. \\
+
+\fig[110]{Uncertainties/ttWt_vs_WWbb.pdf}
+{Coparison of the $\mt$ shape between $\ttbar+Wt \ra WWbb$ (red) and $WWbb$ (blue).}
+{fig::Uncertainties::ttWt_vs_WWbb}
+
+\input{tex/Uncertainties/theoSyst_norm.tex}
+
+
+
+\clearpage
+\subsubsection{Non-normalized Backgrounds}  
+\paragraph{Cross-section uncertainty}
+The cross-section uncertainty for $\zjets$, di-bosons and $\ttbar+W/Z/WW$ amounts upto level of $5\%$ \cite{VjetsXsecMeas_ATLAS_Run1}, $6\%$ \cite{BosonXsec_calc_ATLAS} and $13\%$ \cite{Alwall:2014hca} respectively. 
+%These are evaluated based on the variation of renormalizaton and factorization scales as well as PDF. 
+
+\paragraph{Shape uncertainty}
+The shape uncertainties for non-normalized background components are dominantly seen in spectra regarding to jet activity, in particular jet-multiplicity and $\meffInc$, while the impact on the spectra of other variables are rather limited. Therefore, the shape uncertainties are evaluated in SRs/VRs with the cuts in $\mt$, $\apl$ and topness are removed, as well as the b-tagging requirement. \\
+
+% zjetsはleptonをnuに置き換えた
+
+The variations considered for $\zjets$ and di-bosons are the same as those for $\wjets$ as described above, except for that CKKW matching for dibosons. The menu of variations for $\ttbar+W/Z/WW$ is minimal since it is the smallest backgrounds:
+\begin{itemize}
+\item Choice of renormalization and factorization scale
+The $1\sigma$ up/down variations are generated by simultaneously shifting these scales from the default value $\mu_0$ to $0.5\mu_0$ and $2\mu_0$.
+\item Hard process description.
+As $\ttbar+W/Z/WW$ have not dedicatedly measured in precision using data, additional uncertainty is quoted by comparing with the sample generated by the alternative hard process modeling by Sherpa.
+\end{itemize}
+
+The uncertainties derived for each $\meffInc$-bin of SR and VR, as in Table \ref{tab::Uncertainties::theoSys_Zjets}, \ref{tab::Uncertainties::theoSys_VV} and \ref{tab::Uncertainties::theoSys_ttV} for $\zjets$, di-bosons and $\ttbar$ respectively. Systematics contributing below 5$\%$ or 5 times less than that of the leading uncertainty in the region are ignored.  \\
+%The renormalization scale variation yields the dominant impact for $\zjets$ and di-bosons, due to the fact that it gives the 
+
+\input{tex/Uncertainties/theoSyst_nonnorm.tex}
+
+
+\clearpage
+\subsubsection{SUSY signal} 
+The cross-section uncertainty of gluino pair production amounts up-to $15\% \sim 35\%$, as shown in Figurere \ref{fig::Samples::xsec_GG} in Sec. \ref{sec::Samples::SUSY}.\\
+The shape uncertainty is evaluated by examining following systematic variations:
+\begin{itemize}
+\item Choice of renormalization and factorization scale.\\
+The variations are generated by independently shifting those scales by factor of 2 or 0.5 respectively. 
+
+\item Parton shower tuning.\\
+Five variations are generated by tuning the MadGraph internal parameters dealing with parton shower. The Uncertainties are added in quadrature.
+\end{itemize}
+They are evaluated over the signal points in the \xhalf grid of the model QQC1QQC1, and found to be 
+%(Table \ref{tab::Uncertainties::refSigPoints} in Appendix) 
+typically marginal compared with the cross-section uncertainty. This is because the jet activity is predominantly sourced by gluino decays rather than the ISRs and FSRs for most of the cases. 
+The only exception is found in low $\meffInc$-bins in SR \textbf{2J} where the target signals are with highly comppressed mass splitting between gluino and LSP ($\dmg < 50\gev$) that have to rely on the additional radiation to enter the signal regions. In such case, the acceptance can vary upto by $20\%$ by the theoretical variation. Table \ref{tab::Uncertainties::theoSyst_signal} presents the assigned shape uncertainties, which are common to all the signal models and mass points.
+\tab{ c | c c}{
+  \hline
+  &  Scale in Fac./Renom.  & Parton shower \\
+  \hline
+  \hline
+  SR 2J $\meffIncFirst$   &  15 & 20    \\
+  SR 2J $\meffIncSecond$  &  10 & 10    \\
+  SR 2J $\meffIncThird$   &  -  & 5     \\
+  The other regions       &  -  & -     \\
+  \hline
+}
+{Shape uncertainties assigned for SUSY signal processes $[\%]$. The uncertainties are common to all the signal models.}
+{tab::Uncertainties::theoSyst_signal}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Syst on the method %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\subsection{Other Uncertainties} 
+\subsubsection{Uncertainty Generaic to the Estimation Methods}  \label{sec::Uncertainties::nonClosure}
+The generic errors of the estimation method need to be quoted as additional uncertainties in the background expectation. 
+In the kinematical extrapolation method, this refers to the extrapolation error as already discussed in Sec. \ref{sec::BGestimation::nonClosure_kineExtp}. 
+The assigned uncertainty to each SR and VR are decided as Table \ref{tab::Uncertainties::noClosure_kineExtp}, based on the 
+as shown in Figurere \ref{fig::BGestimation::valid_extp_2J} - \ref{fig::BGestimation::valid_extp_3B} and the observed level of mis-modeling ($x_W=0.1, \,\,\, x_{\ttbar}=0.06$ in Eq. \ref{eq::BGestimation::injected_MCvariation}).
+
+
+%%%%%%%%%%% kine extp 
+\tab{ c | c c || c | c c || c | c c } 
+{
+  \hline
+                         & $\wjets$ & $\ttbar$ &                           &   $\wjets$ & $\ttbar$ &                           & $\wjets$ & $\ttbar$ \\
+  \hline
+  SR 2J $\meffIncFirst$  &  15  & 5            &   VRa 2J $\meffIncFirst$  &  -  & 10              &   VRb 2J $\meffIncFirst$  &  10 & 5     \\
+  SR 2J $\meffIncSecond$ &  15  & -            &   VRa 2J $\meffIncSecond$ &  5  & 10              &   VRb 2J $\meffIncSecond$ &  5  & 10    \\
+  SR 2J $\meffIncThird$  &  15  & 20           &   VRa 2J $\meffIncThird$  &  -  & 20              &   VRb 2J $\meffIncThird$  &  5  & 10    \\
+  SR 6J $\meffIncFirst$  &  -   & 5            &   VRa 6J $\meffIncFirst$  &  -  & 5               &   VRb 6J $\meffIncFirst$  &  -  & -     \\
+  SR 6J $\meffIncSecond$ &  -   & 10           &   VRa 6J $\meffIncSecond$ &  -  & 5               &   VRb 6J $\meffIncSecond$ &  5  & 5     \\
+  SR 6J $\meffIncThird$  &  -   & -            &   VRa 6J $\meffIncThird$  &  -  & 5               &   VRb 6J $\meffIncThird$  &  5  & 10    \\
+  SR Low-x               &  10  & -            &   VRa Low-x               &  -  & 5               &   VRb Low-x               & 10  & 5     \\
+  SR High-x              &  -   & 10           &   VRa High-x              &  -  & 30              &   VRb High-x              &  5  & 10    \\
+  SR 3B $\meffIncFirst$  &  -   & 5            &   VRa 3B $\meffIncFirst$  & 30  & -               &   VRb 3B $\meffIncFirst$  & 20  & 10    \\
+  SR 3B $\meffIncSecond$ &  -   & 10           &   VRa 3B $\meffIncSecond$ & 30  & 5               &   VRb 3B $\meffIncSecond$ & 30  & 15    \\
+  \hline            
+}
+{Assgined uncertainty for $\ttbar$ and $\wjets$ for the kinematical extrapolation from CRs to corresponsding VRs and SRs [$\%$], based on the result in Sec \ref{sec::BGestimation::nonClosure_kineExtp}.}
+{tab::Uncertainties::noClosure_kineExtp}
+
+
+%%%% objRep
+\noindent For the object replacement method, the observed non-closure error discussed throughout Sec. \ref{sec::BGestimation::objRep::mcClosure} - \ref{sec::BGestimation::objRep::NonClosure} are included as systematics as listed in Table \ref{tab::Uncertainties::sys_nonClosure}. 
+%The uncertainties are commonly assigned to all the SRs and VRs for missing-lepton replacement, while extra uncertainty is quoted for the estimation of the tau replacement in the \textbf{3B} towers, to account for the 
+
+\tab{c|c c}
+{
+  \hline
+                               & BV/BT & 3B \\
+  \hline
+  \hline
+  Tau replacement              & 5 & 20 \\
+  Missing electron replacement & \multicolumn{2}{c}{ 15 } \\
+  Missing muon replacement     & \multicolumn{2}{c}{ 30 } \\
+  \hline
+}
+{Summary of non-closure errors in the object replacement method [$\%$]. }
+{tab::Uncertainties::sys_nonClosure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Control region statistics}
+In both of the background estimation methods, reflecting the (semi-)data driven nature, the statistical error in CRs often becomes the primary uncertainty in the estimation.
+This typically occurs in case of the high $\meffInc$ bins, for instance the yields in the CRs for the kinematical extrapolation end up in about 15 events, immediately resulting in $20\%-30\%$ of uncertainty. The tendency is more striking concerning to the object replacement method where the uncertainty is solely dominated by the seed event statistical error that amounts $20\%-60\%$ in SRs depending on the tightness of selection. Furthermore, one has to mind that the statistical error in the object replacement method is not independent between the regions given that the sub-events from a single seed event can fall into different regions. The correlated statistical error between two signal regions is then evaluated by identifying the fraction of common seed events between their estimation. 
+Table \ref{sec::BGestimation::objRep::binCor} shows the correlation coefficient in the estimated yields between SR$_i$ and SR$_j$ defined as:
+$$\rho := \frac{\sum_e \sqrt{w^{i}_e w^{j}_e}}{\sqrt{\sum_e w^{i}_e} \sqrt{\sum_e w^{j}_e}}$$
+where $e$ runs over all seed events, and $w^i_e$ denotes the sum of weighted sub-events falling into SR$_i$ generated by the seed event $e$. Correlation is mainly found in adjacent $\meffInc$-bins, high $\meffInc$ BT/3B bins, and high $\meffInc$ hard lepton / soft lepton bins. This correlation is taken into accounted in the final fitting. Though large inter-bin correlation can potentially destroy the sensitivity in the shape fit, the impact on the final result to this analysis is limited, since the signal points rarely lay over multiple bins with equal abundance. 
+
+%Seed events overlap between the SRs
+\fig[180]{Uncertainties/seed_overlap_objRep/seed_overlap_data.pdf}
+{The correlation coefficient in the estimated yields between two signal regions, indicating the level of correlated statistical fluctuation.}
+{sec::BGestimation::objRep::binCor}
+
+
+
+%%%%%%
+\subsubsection{MC statistics}
+Limited MC statictics lead to non-negligible uncertainty in signal and background yields in regions with tight selection. The largest impact is found in SR 3B $\meffIncSecond$ amounting upto $15\%$, which is still minor compared with the other systematics sources. The statistical behavior is carefully taken into account in the fit, as detailed in the Sec. \ref{sec::Result::statistics}.
+
+
+
+
+
+
+
+

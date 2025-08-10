@@ -1,0 +1,13 @@
+.DS_Store
+*~
+*#
+*.aux
+*.bbl
+*.blg
+*.dbj
+*.out
+*.fls
+*.toc
+*.root
+dthesis.log
+figures_all
